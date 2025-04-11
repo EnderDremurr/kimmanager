@@ -1,15 +1,12 @@
-# [ru-crescent]
-# repo = "Crescent-Corporation/LimbusCompanyBusRUS"
-# name = "CresCorp"
-# authors = ["..."]
-# flag = "RU"
-# icon = "https://github.com/Crescent-Corporation/LimbusCompanyBusRUS/raw/LC_branch_ORIGINAL/Localize/Readme/Crescent_Button.png"
-# format = "compatible"
-
-# [[ru-crescent.fonts]]
-# url = "https://github.com/kimght/LimbusFonts/releases/download/v0.1.0/pretendard_light.otf"
-# hash = "86bec888f8bcb9e9e76e433a120c5962"
-# name = "pretendard_light.otf"
+[ru-CresCorp]
+repo = "Crescent-Corporation/LimbusCompanyBusRUS"
+name = "CresCorp"
+authors = ["Knightey"]
+flag = "RU"
+icon = "https://github.com/Crescent-Corporation/LimbusCompanyBusRUS/blob/LC_branch_ORIGINAL/Localize/Readme/Crescent_Button.png"
+format = "new"
+localization_asset = "localize_files.zip"
+fonts = []
 
 [ru-mtl]
 repo = "kimght/LimbusCompanyRuMTL"
