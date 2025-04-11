@@ -5,7 +5,6 @@ authors = ["Knightey"]
 flag = "RU"
 icon = "https://github.com/Crescent-Corporation/LimbusCompanyBusRUS/raw/LC_branch_ORIGINAL/Localize/Readme/Crescent_Button.png"
 format = "new"
-localization_asset = "localize_files.zip"
 fonts = []
 
 [ru-mtl]
