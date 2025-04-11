@@ -1,7 +1,7 @@
 [ru-CresCorp]
 repo = "Crescent-Corporation/LimbusCompanyBusRUS"
 name = "CresCorp"
-authors = ["Knightey"]
+authors = ["Knightey", "Disaer", "Mellison", "Mermera"]
 flag = "RU"
 icon = "https://github.com/Crescent-Corporation/LimbusCompanyBusRUS/raw/LC_branch_ORIGINAL/Localize/Readme/Crescent_Button.png"
 format = "new"
