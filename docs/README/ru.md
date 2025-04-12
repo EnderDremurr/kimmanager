@@ -17,6 +17,7 @@
 
 # Доступные переводы
 - [**MTL**](https://github.com/kimght/LimbusCompanyRuMTL) (RU)
+- [**Crescent Corporation**](https://github.com/Crescent-Corporation/LimbusCompanyBusRUS) (RU)
 
 # Установка
 1. Скачай последнюю версию для своей операционной системы в [релизах](https://github.com/kimght/LimbusLocalizationManager/releases)
