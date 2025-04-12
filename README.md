@@ -17,6 +17,7 @@ A simple tool for managing Limbus Company localizations
 
 # Currently available
 - [**MTL**](https://github.com/kimght/LimbusCompanyRuMTL) (RU)
+- [**Crescent Corporation**](https://github.com/Crescent-Corporation/LimbusCompanyBusRUS) (RU)
 
 # Installation
 1. Download the latest version for your operation system from [releases](https://github.com/kimght/LimbusLocalizationManager/releases)
