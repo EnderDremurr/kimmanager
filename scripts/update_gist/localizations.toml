@@ -2,7 +2,7 @@
 repo = "Crescent-Corporation/LimbusCompanyBusRUS"
 name = "CresCorp"
 authors = ["Knightey", "Disaer", "Mellison", "Mermera"]
-flag = "RU"
+flag = "RU.svg"
 icon = "https://github.com/Crescent-Corporation/LimbusCompanyBusRUS/raw/LC_branch_ORIGINAL/Localize/Readme/Crescent_Button.png"
 format = "new"
 fonts = []
@@ -11,7 +11,7 @@ fonts = []
 repo = "kimght/LimbusCompanyRuMTL"
 name = "MTL"
 authors = ["kimght", "DAFTPUSiK", "x1bViolet", "Babkaebpmg", "KJHater"]
-flag = "RU"
+flag = "RU.svg"
 icon = "https://github.com/kimght/LimbusCompanyRuMTL/raw/main/data/images/logo.png"
 format = "new"
 localization_asset = "localize_files.zip"
@@ -20,3 +20,37 @@ localization_asset = "localize_files.zip"
 url = "https://github.com/kimght/LimbusFonts/releases/download/v1.6.0/merged_font.ttf"
 hash = "cc1f83f52bd357201db884fd5400072c"
 name = "merged_font.ttf"
+
+[hant-LTM]
+repo = "LimbusTraditionalMandarin/storyline"
+name = "Limbus Traditional Mandarin"
+authors = [
+  # Lead
+  "薯條", 
+  # Managers
+  "Traxton", 
+  "小睡一夏", 
+  "まぅSmallYuan", 
+  "tool-jx3", 
+  "未知未知",
+  # Proofreaders
+  "：이상",
+  "阿茶同學",
+  "十",
+  # Translators
+  "동랑",
+  "Dango-moshi",
+  "Linne1025",
+  "蜜絲",
+  "동백.",
+  "ulofsix"
+]
+
+flag = "LTM.png"
+icon = "https://avatars.githubusercontent.com/u/200600060"
+format = "new"
+
+[[hant-LTM.fonts]]
+url = "https://github.com/LimbusTraditionalMandarin/font/releases/download/1744630853/SarasaGothicTC-Bold.ttf"
+hash = "44563efaea921914d58e42bac4495881"
+name = "SarasaGothicTC-Bold.ttf"
