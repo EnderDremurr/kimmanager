@@ -7,6 +7,16 @@ icon = "https://github.com/Crescent-Corporation/LimbusCompanyBusRUS/raw/LC_branc
 format = "new"
 fonts = []
 
+[[ru-CresCorp.fonts]]
+url = "https://github.com/kimght/LimbusFonts/releases/download/v1.8.0/merged_font.ttf"
+hash = "b8c47fe4c36a080587b57e5c31fa7fb9"
+name = "Context/ContextFont.ttf"
+
+[[ru-CresCorp.fonts]]
+url = "https://github.com/kimght/LimbusFonts/releases/download/v1.8.0/merged_font.ttf"
+hash = "b8c47fe4c36a080587b57e5c31fa7fb9"
+name = "Title/TitleFont.ttf"
+
 [ru-mtl]
 repo = "kimght/LimbusCompanyRuMTL"
 name = "MTL"
@@ -17,9 +27,14 @@ format = "new"
 localization_asset = "localize_files.zip"
 
 [[ru-mtl.fonts]]
-url = "https://github.com/kimght/LimbusFonts/releases/download/v1.6.0/merged_font.ttf"
-hash = "cc1f83f52bd357201db884fd5400072c"
-name = "merged_font.ttf"
+url = "https://github.com/kimght/LimbusFonts/releases/download/v1.8.0/merged_font.ttf"
+hash = "b8c47fe4c36a080587b57e5c31fa7fb9"
+name = "Context/ContextFont.ttf"
+
+[[ru-mtl.fonts]]
+url = "https://github.com/kimght/LimbusFonts/releases/download/v1.8.0/merged_font.ttf"
+hash = "b8c47fe4c36a080587b57e5c31fa7fb9"
+name = "Title/TitleFont.ttf"
 
 [hant-LTM]
 repo = "LimbusTraditionalMandarin/storyline"
@@ -53,4 +68,9 @@ format = "new"
 [[hant-LTM.fonts]]
 url = "https://github.com/LimbusTraditionalMandarin/font/releases/download/1744630853/SarasaGothicTC-Bold.ttf"
 hash = "44563efaea921914d58e42bac4495881"
-name = "SarasaGothicTC-Bold.ttf"
+name = "Context/ContextFont.ttf"
+
+[[hant-LTM.fonts]]
+url = "https://github.com/LimbusTraditionalMandarin/font/releases/download/1744630853/SarasaGothicTC-Bold.ttf"
+hash = "44563efaea921914d58e42bac4495881"
+name = "Title/TitleFont.ttf"
