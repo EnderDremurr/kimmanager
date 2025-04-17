@@ -18,6 +18,11 @@ const METADATA_FILE_NAME: &str = "llc_config.toml";
 const REPO_NAME: &str = "kimght/LimbusLocalizationManager";
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
+struct GameConfig {
+    lang: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct AvailableLocalizations {
     format_version: u32,
     localizations: Vec<Localization>,
@@ -206,11 +211,14 @@ pub async fn install_fonts_for_localization(
             info!("Using cached font: {:?}", font_cache_path);
         }
 
-        let target_fonts_dir = game_path
+        let target_font_path = game_path
             .join("LimbusCompany_Data")
             .join("Lang")
             .join(&localization.id)
-            .join("Font");
+            .join("Font")
+            .join(&font_info.name);
+
+        let target_fonts_dir = target_font_path.parent().unwrap();
 
         fs::create_dir_all(&target_fonts_dir).with_context(|| {
             format!(
@@ -218,8 +226,6 @@ pub async fn install_fonts_for_localization(
                 target_fonts_dir
             )
         })?;
-
-        let target_font_path = target_fonts_dir.join(&font_info.name);
 
         let mut needs_copy = true;
         if target_font_path.exists() {
@@ -339,6 +345,53 @@ pub async fn get_latest_version() -> Result<String, anyhow::Error> {
 
     info!("Latest version: {}", tag_name);
     Ok(tag_name.to_string())
+}
+
+pub fn validate_game_config(game_path: &PathBuf) -> Result<(), anyhow::Error> {
+    let config_path = game_path
+        .join("LimbusCompany_Data")
+        .join("Lang")
+        .join("config.json");
+
+    if !config_path.exists() {
+        debug!("Config file does not exist, the game will create it");
+        return Ok(());
+    }
+
+    if !config_path.is_file() {
+        return Err(anyhow::anyhow!("Config file is not a file"));
+    }
+
+    let config_content =
+        fs::read_to_string(&config_path).with_context(|| format!("Failed to read config file"))?;
+
+    match serde_json::from_str::<GameConfig>(&config_content) {
+        Ok(config) => {
+            if config.lang.is_empty() {
+                return Err(anyhow::anyhow!("Config file is empty"));
+            }
+
+            let active_localization = game_path
+                .join("LimbusCompany_Data")
+                .join("Lang")
+                .join(&config.lang);
+
+            if !active_localization.exists() {
+                debug!("Active localization does not exist, deleting config file");
+                fs::remove_file(&config_path)
+                    .with_context(|| format!("Failed to delete config file"))?;
+            }
+
+            Ok(())
+        }
+        Err(e) => {
+            debug!("Failed to parse config file, deleting it, error: {:?}", e);
+            fs::remove_file(&config_path)
+                .with_context(|| format!("Failed to delete config file"))?;
+
+            return Ok(());
+        }
+    }
 }
 
 fn create_temp_directory(localization_id: &str) -> Result<tempfile::TempDir, anyhow::Error> {

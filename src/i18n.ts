@@ -46,7 +46,7 @@ i18n
       default: ["en"],
     },
     resources,
-    nonExplicitSupportedLngs: true
+    nonExplicitSupportedLngs: true,
   });
 
 export default i18n;

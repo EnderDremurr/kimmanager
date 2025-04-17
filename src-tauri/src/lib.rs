@@ -548,6 +548,10 @@ async fn update_and_play(
             e.to_string()
         })?;
 
+    if let Err(e) = utils::validate_game_config(&game_path) {
+        error!("Failed to validate game config: {:?}", e);
+    }
+
     app_handle.emit("play:starting_game", ()).unwrap();
     steam::launch_game().map_err(|e| {
         error!("Failed to launch game: {:?}", e);
@@ -574,7 +578,7 @@ pub fn run() {
         .setup(|app| {
             let app_handle = app.handle();
 
-            use tauri::{LogicalSize, WebviewWindowBuilder, WebviewUrl};
+            use tauri::{LogicalSize, WebviewUrl, WebviewWindowBuilder};
             let window = WebviewWindowBuilder::new(app, "main", WebviewUrl::default())
                 .title("Limbus Localization Manager")
                 .resizable(false)
@@ -583,10 +587,10 @@ pub fn run() {
                 .build()
                 .unwrap();
 
-            window.set_zoom(1.0)
-                .expect("Failed to set zoom");
+            window.set_zoom(1.0).expect("Failed to set zoom");
 
-            window.set_size(LogicalSize::new(640.0, 480.0))
+            window
+                .set_size(LogicalSize::new(640.0, 480.0))
                 .expect("Failed to set size");
 
             let app_state = AppState::new(&app_handle);

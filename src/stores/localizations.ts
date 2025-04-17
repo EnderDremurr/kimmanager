@@ -86,7 +86,6 @@ export class LocalizationsStore {
   public get all() {
     return Object.values(this.byId).sort((a, b) => {
       let comparison = a.flag.localeCompare(b.flag);
-      
       if (comparison === 0) {
         comparison = a.name.localeCompare(b.name);
       }
