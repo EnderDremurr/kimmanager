@@ -20,6 +20,7 @@
     "select": "選擇本地化語言",
     "notFound": "找不到本地化語言",
     "uninstall": "解除安裝",
+    "update": "更新",
     "repair": "修復",
     "add": "新增",
     "installed": "已安裝 {{localization}}（{{version}}）",
@@ -36,7 +37,9 @@
     "install": "安裝 {{localization}} 失敗",
     "setGameDirectory": "設定遊戲目錄失敗",
     "somethingWentWrong": "發生錯誤！",
-    "updateAndPlay": "更新失敗！"
+    "updateAndPlay": "更新失敗！",
+    "uninstall": "解除安裝 {{localization}} 失敗",
+    "repair": "修復 {{localization}} 失敗"
   },
   "log": {
     "started": "正在檢查更新…",

@@ -20,6 +20,7 @@
     "select": "Выберите локализацию",
     "notFound": "Локализация не найдена",
     "uninstall": "Удалить",
+    "update": "Обновить",
     "repair": "Починить",
     "add": "Установить",
     "installed": "Установлена {{localization}} ({{version}})",
@@ -36,7 +37,9 @@
     "install": "Не удалось установить локализацию {{localization}}",
     "setGameDirectory": "Не удалось установить директорию игры",
     "somethingWentWrong": "Что-то пошло не так!",
-    "updateAndPlay": "Ошибка при обновлении локализации!"
+    "updateAndPlay": "Ошибка при обновлении локализации!",
+    "uninstall": "Не удалось удалить {{localization}}",
+    "repair": "Не удалось переустановить {{localization}}"
   },
   "log": {
     "started": "Проверяю обновления...",

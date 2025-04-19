@@ -21,10 +21,11 @@
     "notFound": "Localization not found",
     "uninstall": "Uninstall",
     "repair": "Repair",
+    "update": "Update",
     "add": "Add",
     "installed": "Installed {{localization}} ({{version}})",
     "uninstalled": "Uninstalled {{localization}}",
-    "repaired": "Repaired {{localization}}"
+    "repaired": "Reinstalled {{localization}}"
   },
   "localizations": {
     "loading": "Loading localizations",
@@ -33,10 +34,12 @@
     "changeSource": "Change source"
   },
   "error": {
-    "install": "Failed to install localization {{localization}}",
+    "install": "Failed to install {{localization}}",
     "setGameDirectory": "Failed to set game directory",
     "somethingWentWrong": "Something went wrong!",
-    "updateAndPlay": "Update failed!"
+    "updateAndPlay": "Update failed!",
+    "uninstall": "Failed to uninstall {{localization}}",
+    "repair": "Failed to repair {{localization}}"
   },
   "log": {
     "started": "Looking for updates...",

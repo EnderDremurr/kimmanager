@@ -3,7 +3,7 @@ mod steam;
 mod utils;
 
 use dashmap::DashMap;
-use log::{error, info};
+use log::{debug, error, info};
 use serde::{Deserialize, Serialize};
 use tauri::{Emitter, Manager, State};
 use tokio::sync::Mutex;
@@ -102,6 +102,7 @@ type LocalizationLocks = DashMap<(String, std::path::PathBuf), Mutex<()>>;
 
 #[tauri::command]
 async fn get_latest_version() -> Result<String, String> {
+    debug!("Fetching latest version");
     utils::get_latest_version().await.map_err(|e| e.to_string())
 }
 
@@ -111,6 +112,8 @@ async fn get_available_localizations(
     app_state: State<'_, AppStateMutex>,
     remote_localizations: State<'_, RemoteLocalizationsMutex>,
 ) -> Result<Vec<utils::Localization>, String> {
+    debug!("Fetching available localizations");
+
     let active_source_name;
     let source_url;
 
@@ -167,6 +170,8 @@ async fn update_settings(
     remote_localizations: State<'_, RemoteLocalizationsMutex>,
     new_settings: settings::AppSettings,
 ) -> Result<(), String> {
+    debug!("Updating settings");
+
     let mut app_state_guard = state.lock().await;
 
     if new_settings.selected_source != app_state_guard.settings.selected_source {
@@ -198,6 +203,8 @@ async fn install_localization(
     localization_lock: State<'_, LocalizationLocks>,
     localization: utils::Localization,
 ) -> Result<(), String> {
+    debug!("Installing localization: {:?}", localization.id);
+
     if steam::is_game_running() {
         return Err("Game is running".to_string());
     }
@@ -288,6 +295,8 @@ async fn uninstall_localization(
     localization_lock: State<'_, LocalizationLocks>,
     localization: utils::Localization,
 ) -> Result<(), String> {
+    debug!("Uninstalling localization: {:?}", localization.id);
+
     if steam::is_game_running() {
         return Err("Game is running".to_string());
     }
@@ -351,6 +360,8 @@ async fn repair_localization(
     localization_lock: State<'_, LocalizationLocks>,
     localization: utils::Localization,
 ) -> Result<(), String> {
+    debug!("Repairing localization: {:?}", localization.id);
+
     install_localization(app_handle, state, localization_lock, localization).await?;
     Ok(())
 }
@@ -361,6 +372,8 @@ async fn set_game_directory(
     state: State<'_, AppStateMutex>,
     directory: Option<String>,
 ) -> Result<(), String> {
+    debug!("Setting game directory to: {:?}", directory);
+
     let mut app_state_guard = state.lock().await;
 
     app_state_guard
@@ -392,6 +405,8 @@ async fn update_and_play(
     localization_lock: State<'_, LocalizationLocks>,
     remote_localizations_state: State<'_, RemoteLocalizationsMutex>,
 ) -> Result<(), String> {
+    debug!("Running update and play");
+
     app_handle.emit("play:started", ()).unwrap();
 
     if steam::is_game_running() {
@@ -564,9 +579,13 @@ async fn update_and_play(
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    env_logger::init();
-
     tauri::Builder::default()
+        .plugin(
+            tauri_plugin_log::Builder::new()
+                .max_file_size(128_000)
+                .rotation_strategy(tauri_plugin_log::RotationStrategy::KeepAll)
+                .build(),
+        )
         .plugin(tauri_plugin_os::init())
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| {
             let _ = app
@@ -577,6 +596,9 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
             let app_handle = app.handle();
+
+            let version = app_handle.package_info().version.to_string();
+            info!("Initializing Limbus Localization Manager v{}", version);
 
             use tauri::{LogicalSize, WebviewUrl, WebviewWindowBuilder};
             let window = WebviewWindowBuilder::new(app, "main", WebviewUrl::default())

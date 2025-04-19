@@ -1,3 +1,4 @@
+use log::{debug, error, warn};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs;
@@ -46,10 +47,10 @@ fn load_default_settings(app_handle: &tauri::AppHandle) -> Result<AppSettings, a
         .path()
         .resolve("resources/default_config.toml", BaseDirectory::Resource)?;
 
-    println!("Loading default config from: {:?}", resource_path);
+    debug!("Loading default config from: {:?}", resource_path);
 
     if !resource_path.exists() {
-        eprintln!(
+        warn!(
             "Warning: default_config.toml not found at {:?}. Using hardcoded default.",
             resource_path
         );
@@ -72,13 +73,13 @@ pub fn load_settings(app_handle: &tauri::AppHandle) -> Result<AppSettings, anyho
     if config_path.exists() {
         let config_content = fs::read_to_string(&config_path)?;
         let settings: AppSettings = toml::from_str(&config_content).unwrap_or_else(|e| {
-            eprintln!("Failed to parse config file: {}", e);
+            error!("Failed to parse config file: {}", e);
             load_default_settings(app_handle).unwrap()
         });
         return Ok(settings);
     }
 
-    println!(
+    debug!(
         "Config file not found at {:?}. Loading default config.",
         config_path
     );
@@ -93,6 +94,6 @@ pub fn save_settings(
     let config_path = get_config_path(app_handle)?;
     let config_content = toml::to_string(settings)?;
     fs::write(&config_path, config_content)?;
-    println!("Settings saved to: {:?}", config_path);
+    debug!("Settings saved to: {:?}", config_path);
     Ok(())
 }

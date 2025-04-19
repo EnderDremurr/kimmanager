@@ -34,7 +34,8 @@ pub enum Format {
     Compatible, // zip with Localize/LANG/... as we used to do before update
     #[serde(rename = "new")]
     New, // just contents of LANG folder
-
+    #[serde(rename = "simple")]
+    Simple, // Lang/LANG/...
     #[serde(untagged)]
     Unknown(String),
 }
@@ -174,10 +175,10 @@ pub async fn install_fonts_for_localization(
             match calculate_md5(&font_cache_path) {
                 Ok(calculated_hash) => {
                     if calculated_hash == *expected_hash {
-                        info!("Cached font hash matches. Skipping download.");
+                        debug!("Cached font hash matches. Skipping download.");
                         needs_download = false;
                     } else {
-                        warn!(
+                        debug!(
                             "Cached font hash mismatch (expected: {}, found: {}). Re-downloading.",
                             expected_hash, calculated_hash
                         );
@@ -190,7 +191,7 @@ pub async fn install_fonts_for_localization(
                     }
                 }
                 Err(e) => {
-                    warn!(
+                    debug!(
                         "Failed to calculate hash for cached font {:?}: {}. Re-downloading.",
                         font_cache_path, e
                     );
@@ -232,13 +233,13 @@ pub async fn install_fonts_for_localization(
             match calculate_md5(&target_font_path) {
                 Ok(target_hash) => {
                     if target_hash == *expected_hash {
-                        info!(
+                        debug!(
                             "Target font {:?} already exists and hash matches. Skipping copy.",
                             target_font_path
                         );
                         needs_copy = false;
                     } else {
-                        warn!(
+                        debug!(
                             "Target font {:?} exists but hash mismatches. Overwriting.",
                             target_font_path
                         );
@@ -284,11 +285,10 @@ pub async fn install_localization(
 
     let download_path = download_localization_file(&localization, &temp_dir).await?;
 
-    info!("Extracting localization to: {:?}", extract_path);
+    debug!("Extracting localization to: {:?}", extract_path);
     extract_zip_archive(&download_path, extract_path)?;
 
     let language_dir = find_language_directory(extract_path, &localization.format)?;
-
     install_to_game_directory(&game_path, &language_dir, &localization)?;
 
     info!(
@@ -306,10 +306,8 @@ pub async fn uninstall_localization(
     let target_path = target_base_path.join(&localization.id);
 
     if !target_path.exists() {
-        return Err(anyhow::anyhow!(
-            "Localization '{}' not found",
-            localization.id
-        ));
+        info!("Localization '{}' not found, skipping uninstall", localization.id);
+        return Ok(());
     }
 
     fs::remove_dir_all(&target_path)
@@ -512,7 +510,8 @@ fn extract_zip_entry(file: &mut zip::read::ZipFile, outpath: &Path) -> Result<()
 
 fn find_language_directory(extract_path: &Path, format: &Format) -> Result<PathBuf, anyhow::Error> {
     match format {
-        Format::Compatible => find_compatible_language_dir(extract_path),
+        Format::Compatible => find_language_dir(extract_path, "Localize"),
+        Format::Simple => find_language_dir(extract_path, "Lang"),
         Format::New => {
             debug!(
                 "Using 'new' format, language directory is root: {:?}",
@@ -526,19 +525,20 @@ fn find_language_directory(extract_path: &Path, format: &Format) -> Result<PathB
     }
 }
 
-fn find_compatible_language_dir(extract_path: &Path) -> Result<PathBuf, anyhow::Error> {
-    let localize_path = extract_path.join("Localize");
+fn find_language_dir(extract_path: &Path, prefix: &str) -> Result<PathBuf, anyhow::Error> {
+    let localize_path = extract_path.join(prefix);
 
     if !localize_path.is_dir() {
         return Err(anyhow::anyhow!(
-            "Localization format is 'compatible' but 'Localize' directory not found."
+            "Prefix '{}' not found.",
+            prefix
         ));
     }
 
     for entry in fs::read_dir(localize_path)
-        .with_context(|| format!("Failed to read 'Localize' directory"))?
+        .with_context(|| format!("Failed to read '{}' directory", prefix))?
     {
-        let entry = entry.with_context(|| format!("Error reading entry in 'Localize'"))?;
+        let entry = entry.with_context(|| format!("Error reading entry in '{}'", prefix))?;
         let path = entry.path();
 
         if path.is_dir() && path.join("StoryData").is_dir() {
@@ -548,7 +548,8 @@ fn find_compatible_language_dir(extract_path: &Path) -> Result<PathBuf, anyhow::
     }
 
     Err(anyhow::anyhow!(
-        "Could not find language directory with StoryData in 'Localize'."
+        "Could not find language directory with StoryData in '{}'.",
+        prefix
     ))
 }
 
@@ -586,7 +587,14 @@ fn copy_directory_contents(src_dir: &Path, dest_dir: &Path) -> Result<(), anyhow
     {
         let entry = entry.with_context(|| format!("Error reading entry in language dir"))?;
         let source_path = entry.path();
-        let destination_path = dest_dir.join(entry.file_name());
+        let file_name = entry.file_name();
+        
+        if file_name == "localization.zip" {
+            debug!("Skipping localization.zip file");
+            continue;
+        }
+        
+        let destination_path = dest_dir.join(&file_name);
 
         debug!("Copying {:?} -> {:?}", source_path, destination_path);
 
@@ -636,7 +644,7 @@ async fn download_and_validate_font(
 ) -> Result<(), anyhow::Error> {
     let client = Client::new();
 
-    info!("Starting download from {} to {:?}", url, save_path);
+    debug!("Starting download from {} to {:?}", url, save_path);
 
     let response = client
         .get(url)

@@ -2,7 +2,7 @@ import { rootStore } from "@/stores";
 import { Localization, Status } from "@/stores/models";
 import { observer } from "mobx-react-lite";
 import styles from "./actions.module.css";
-import { Hammer, Plus, X } from "lucide-react";
+import { Hammer, FolderDown, Plus, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Grid } from "react-loader-spinner";
 
@@ -31,9 +31,16 @@ function Actions({ localization }: ActionsProps) {
 
             {installedVersion && (
               <>
-                <button onClick={handleRepair} title={t("localization.repair")}>
-                  <Hammer className="w-6 h-6 shrink-0" />
-                </button>
+                {installedVersion === localization.version ? (
+                  <button onClick={handleRepair} title={t("localization.repair")}>
+                    <Hammer className="w-6 h-6 shrink-0" />
+                  </button>
+                ) : (
+                  <button onClick={handleRepair} title={t("localization.update")}>
+                    <FolderDown className="w-6 h-6 shrink-0" />
+                  </button>
+                )}
+
                 <button
                   onClick={handleUninstall}
                   title={t("localization.uninstall")}
