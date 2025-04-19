@@ -491,7 +491,12 @@ async fn update_and_play(
             }
 
             let remote_localization = remote_localization.unwrap();
-            if remote_localization.version == localization.version {
+            let localization_path = game_path
+                .join("LimbusCompany_Data")
+                .join("Lang")
+                .join(&localization.id);
+
+            if localization_path.exists() && remote_localization.version == localization.version {
                 info!("Localization {} is up to date", &localization.id);
                 app_handle
                     .emit("play:up_to_date", &localization.id)
