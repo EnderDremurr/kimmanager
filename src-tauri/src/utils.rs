@@ -34,8 +34,8 @@ pub enum Format {
     Compatible, // zip with Localize/LANG/... as we used to do before update
     #[serde(rename = "new")]
     New, // just contents of LANG folder
-    #[serde(rename = "simple")]
-    Simple, // Lang/LANG/...
+    #[serde(rename = "auto")]
+    Auto, // Find the first folder with StoryData
     #[serde(untagged)]
     Unknown(String),
 }
@@ -510,8 +510,8 @@ fn extract_zip_entry(file: &mut zip::read::ZipFile, outpath: &Path) -> Result<()
 
 fn find_language_directory(extract_path: &Path, format: &Format) -> Result<PathBuf, anyhow::Error> {
     match format {
-        Format::Compatible => find_language_dir(extract_path, "Localize"),
-        Format::Simple => find_language_dir(extract_path, "Lang"),
+        Format::Compatible => find_language_dir(extract_path),
+        Format::Auto => find_language_dir(extract_path),
         Format::New => {
             debug!(
                 "Using 'new' format, language directory is root: {:?}",
@@ -525,32 +525,36 @@ fn find_language_directory(extract_path: &Path, format: &Format) -> Result<PathB
     }
 }
 
-fn find_language_dir(extract_path: &Path, prefix: &str) -> Result<PathBuf, anyhow::Error> {
-    let localize_path = extract_path.join(prefix);
-
-    if !localize_path.is_dir() {
-        return Err(anyhow::anyhow!(
-            "Prefix '{}' not found.",
-            prefix
-        ));
-    }
-
-    for entry in fs::read_dir(localize_path)
-        .with_context(|| format!("Failed to read '{}' directory", prefix))?
-    {
-        let entry = entry.with_context(|| format!("Error reading entry in '{}'", prefix))?;
-        let path = entry.path();
-
-        if path.is_dir() && path.join("StoryData").is_dir() {
-            debug!("Found compatible language directory: {:?}", path);
-            return Ok(path);
+fn find_language_dir(extract_path: &Path) -> Result<PathBuf, anyhow::Error> {
+    fn find_story_data_dir(path: &Path) -> Option<PathBuf> {
+        if path.join("StoryData").is_dir() {
+            return Some(path.to_path_buf());
         }
+
+        if path.is_dir() {
+            for entry in fs::read_dir(path).ok()? {
+                if let Ok(entry) = entry {
+                    let entry_path = entry.path();
+                    if let Some(found) = find_story_data_dir(&entry_path) {
+                        return Some(found);
+                    }
+                }
+            }
+        }
+
+        None
     }
 
-    Err(anyhow::anyhow!(
-        "Could not find language directory with StoryData in '{}'.",
-        prefix
-    ))
+    match find_story_data_dir(extract_path) {
+        Some(path) => {
+            debug!("Found compatible language directory: {:?}", path);
+            Ok(path)
+        }
+        None => Err(anyhow::anyhow!(
+            "Could not find language directory with StoryData in '{:?}'.",
+            extract_path
+        ))
+    }
 }
 
 fn install_to_game_directory(
