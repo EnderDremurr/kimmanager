@@ -37,7 +37,7 @@ Click the `+` button to install your desired localizations. You can select multi
 Once a localization is installed, you can remove it using the `X` button. `Repair` button will reinstall the latest version.
 
 ## Updating localizations
-When an update is available, it will be displayed on the corresponding localization page. You can use the `Repair` button to install it immediately.
+When an update is available, it will be displayed on the corresponding localization page. You can use the `Update` button to install it immediately.
 
 But the recommended way to update is by using the `Update & Play` button on the home page to start Limbus Company. This will automatically:
 - Check if all installed localizations are up-to-date
