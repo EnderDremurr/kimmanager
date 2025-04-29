@@ -37,6 +37,7 @@ dashmap = "6.1.0"
 sysinfo = "0.34.2"
 tauri-plugin-os = "2"
 tauri-plugin-log = "2"
+tauri-plugin-store = "2"
 
 [target.'cfg(windows)'.dependencies]
 winreg = "0.51.0"

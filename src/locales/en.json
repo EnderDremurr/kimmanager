@@ -60,6 +60,83 @@
     "source": "Source code",
     "issues": "Support",
     "developer": "Developer",
-    "translator": "Translator"
+    "translator": "Translator",
+    "glupo": "▸ Lobotomy 2"
+  },
+  "glupo": {
+    "loading": "Loading",
+    "title": "Lobotomy 2",
+    "balance": "PE",
+
+    "shop": {
+      "button": "Show Research Log",
+      "title": "Research Log",
+      "reset": "Activate TT2 Protocol",
+
+      "section": {
+        "stats": "Stats",
+        "risk": "Risk Level",
+        "weapons": "Weapons",
+        "armor": "Armor",
+        "reset": "TT2 Protocol"
+      },
+
+      "stats": {
+        "fortitude": "Fortitude",
+        "fortitudeDescription": "Level: {{base}} (total: {{total}})\nPE boxes per hit: {{min}} - {{max}}",
+
+        "prudence": "Prudence",
+        "prudenceDescription": "Level: {{base}} (total: {{total}})\nMax SP: {{max}}\nSP regeneration: {{regeneration}}ms\nPanic cooldown: {{panicRestore}}ms",
+
+        "temperance": "Temperance",
+        "temperanceDescription": "Level: {{base}} (total: {{total}})\nCritical chance: {{criticalChance}}\nCritical multiplier: {{criticalMultiplier}}",
+
+        "justice": "Justice",
+        "justiceDescription": "Level: {{base}} (total: {{total}})\nSpeed bonus: {{speedBonus}}%\nHit cooldown: {{cooldown}}ms\nWeapon cooldown: {{weaponCooldown}}ms"
+      }
+    },
+
+    "weapons": {
+      "penitence": "Penitence",
+      "penitenceDescription": "Heal 5 SP on critical hit",
+
+      "redEyes": "Red Eyes",
+      "redEyesDescription": "+4 fortitude;\nRandomly spawn up to 3 temporary spiders that give +1 temperance.",
+
+      "harvest": "Harvest",
+      "harvestDescription": "+2 prudence;\nBonus PE each hit if less than 5 prudence;\nBigger bonus if prudence equals 0.",
+
+      "heaven": "Heaven",
+      "heavenDescription": "Bonus PE for vertical hits.",
+
+      "goldRush": "Gold Rush",
+      "goldRushDescription": "+4 fortitude;\n-2 temperance;\nExtremely fast attack speed.",
+
+      "smile": "Smile",
+      "smileDescription": "+5 fortitude;\nBecomes stronger if SP is below half.",
+
+      "twilight": "Twilight",
+      "twilightDescription": "+5 fortitude;\n+5 prudence;\n+5 temperance;\n+5 justice;\nOn each critical hit, gain +1 temperance and +1 justice for 2.5 seconds."
+    },
+
+    "armor": {
+      "penitence": "Penitence",
+      "penitenceDescription": "+3 fortitude;\n+1 justice;\nImmediately restore 20 SP on panic start.",
+
+      "redEyes": "Red Eyes",
+      "redEyesDescription": "+3 fortitude;\n+1 prudence;\n+4 temperance.",
+
+      "harvest": "Harvest",
+      "harvestDescription": "+5 fortitude;\n+5 temperance;\n-999 prudence.",
+
+      "heaven": "Heaven",
+      "heavenDescription": "+4 fortitude;\n+5 prudence;\n+6 temperance;\n+3 justice.",
+
+      "smile": "Smile",
+      "smileDescription": "+6 fortitude;\n+2 prudence;\n+2 temperance;\n+2 justice;\nFor 5 seconds after panic, gain +5 fortitude, +5 temperance and +5 justice.",
+
+      "twilight": "Twilight",
+      "twilightDescription": "+10 fortitude;\n+10 prudence;\n+10 temperance;\n+10 justice;\n50% chance to immediately recover from panic."
+    }
   }
 }

@@ -306,7 +306,10 @@ pub async fn uninstall_localization(
     let target_path = target_base_path.join(&localization.id);
 
     if !target_path.exists() {
-        info!("Localization '{}' not found, skipping uninstall", localization.id);
+        info!(
+            "Localization '{}' not found, skipping uninstall",
+            localization.id
+        );
         return Ok(());
     }
 
@@ -553,7 +556,7 @@ fn find_language_dir(extract_path: &Path) -> Result<PathBuf, anyhow::Error> {
         None => Err(anyhow::anyhow!(
             "Could not find language directory with StoryData in '{:?}'.",
             extract_path
-        ))
+        )),
     }
 }
 
@@ -592,12 +595,12 @@ fn copy_directory_contents(src_dir: &Path, dest_dir: &Path) -> Result<(), anyhow
         let entry = entry.with_context(|| format!("Error reading entry in language dir"))?;
         let source_path = entry.path();
         let file_name = entry.file_name();
-        
+
         if file_name == "localization.zip" {
             debug!("Skipping localization.zip file");
             continue;
         }
-        
+
         let destination_path = dest_dir.join(&file_name);
 
         debug!("Copying {:?} -> {:?}", source_path, destination_path);

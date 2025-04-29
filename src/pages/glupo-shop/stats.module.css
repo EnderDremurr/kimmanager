@@ -1,0 +1,60 @@
+@reference "tailwindcss";
+@reference "../../globals.css";
+
+.stats {
+  @apply grid grid-cols-2 gap-2;
+}
+
+.container {
+  @apply relative flex;
+}
+
+.stat {
+  @apply 
+    flex items-center justify-between gap-2 border border-limbus-600/30 
+    overflow-hidden rounded-md p-2 relative cursor-pointer
+    transition-colors duration-100 flex-1
+  ;
+}
+
+.stat:hover {
+  @apply border-limbus-600/60;
+}
+
+.stat:hover::before {
+  @apply bg-limbus-600/60;
+}
+
+.stat:disabled {
+  @apply border-danger/30 cursor-help;
+}
+
+.stat:disabled::before {
+  @apply bg-danger/30;
+}
+
+.stat > * {
+  @apply z-10;
+}
+
+.stat::before {
+  content: "";
+  @apply absolute top-0 left-0 h-full bg-limbus-600/30 transition-all duration-100;
+
+  width: var(--progress);
+}
+
+.description {
+  @apply text-sm text-limbus-400
+    absolute -left-1 -right-1
+    p-2 rounded-md z-30 hidden
+    whitespace-pre-wrap
+  ;
+
+  top: calc(100% + 0.25rem);
+  background:rgb(22, 18, 21);
+}
+
+.container:hover .description {
+  @apply block;
+}

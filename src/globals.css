@@ -114,6 +114,14 @@
   }
 }
 
+@utility drag-none {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
 @utility lnk {
   @apply 
     text-limbus-500 hover:text-limbus-400 active:text-limbus-300 

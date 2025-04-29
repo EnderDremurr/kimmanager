@@ -1,0 +1,28 @@
+@reference "tailwindcss";
+@reference "../../globals.css";
+
+.container {
+  @apply border border-limbus-600/30 rounded-md 
+    flex items-center gap-2 p-2 transition-colors duration-100 cursor-pointer
+    justify-between;
+}
+
+.container:hover {
+  @apply border-limbus-600/60;
+}
+
+.container:disabled {
+  @apply border-danger/30 cursor-help;
+}
+
+.container p {
+  @apply text-limbus-500 italic text-lg font-semibold;
+}
+
+.container:hover p {
+  @apply text-limbus-400;
+}
+
+.container:disabled p {
+  @apply text-danger;
+}

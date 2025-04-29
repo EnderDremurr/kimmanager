@@ -58,6 +58,83 @@
     "source": "Исходный код",
     "issues": "Поддержка",
     "developer": "Разработчик",
-    "translator": "Переводчик"
+    "translator": "Переводчик",
+    "glupo": "▸ Lobotomy 2"
+  },
+  "glupo": {
+    "loading": "Загрузка",
+    "title": "Lobotomy 2",
+    "balance": "PE",
+
+    "shop": {
+      "button": "Журнал исследований",
+      "title": "Журнал исследований",
+      "reset": "Активировать протокол TT2",
+
+      "section": {
+        "stats": "Характеристики",
+        "risk": "Уровень риска",
+        "weapons": "Оружие",
+        "armor": "Броня",
+        "reset": "Протокол TT2"
+      },
+
+      "stats": {
+        "fortitude": "Мужество",
+        "fortitudeDescription": "Уровень: {{base}} (всего: {{total}})\nPE ячеек за удар: {{min}} - {{max}}",
+
+        "prudence": "Мудрость",
+        "prudenceDescription": "Уровень: {{base}} (всего: {{total}})\nМаксимум SP: {{max}}\nРегенерация SP: {{regeneration}}ms\nРегенерация SP при панике: {{panicRestore}}ms",
+
+        "temperance": "Выдержка",
+        "temperanceDescription": "Уровень: {{base}} (всего: {{total}})\nШанс крита: {{criticalChance}}\nМножитель крита: {{criticalMultiplier}}",
+
+        "justice": "Справедливость",
+        "justiceDescription": "Уровень: {{base}} (всего: {{total}})\nБонус скорости: {{speedBonus}}%\nПерезарядка удара: {{cooldown}}ms\nПерезарядка оружия: {{weaponCooldown}}ms"
+      }
+    },
+
+    "weapons": {
+      "penitence": "Раскаяние",
+      "penitenceDescription": "Лечит 5 SP при крите",
+
+      "redEyes": "Красные глаза",
+      "redEyesDescription": "+4 мужество;\nСлучайно создаёт до 3 временных пауков, которые дают +1 выдержку.",
+
+      "harvest": "Жатва",
+      "harvestDescription": "+2 мудрость;\nБонусные PE при ударе, если мудрость меньше 5;\nБольший бонус, если мудрость равна 0.",
+
+      "heaven": "Рай",
+      "heavenDescription": "Бонусные PE при ударах прямо по вертикали.",
+
+      "goldRush": "Золотая лихорадка",
+      "goldRushDescription": "+4 мужество;\n-2 выдержка;\nОчень высокая скорость атаки.",
+
+      "smile": "Улыбка",
+      "smileDescription": "+5 мужество;\nСтановится сильнее, если SP ниже половины.",
+
+      "twilight": "Сумерки",
+      "twilightDescription": "+5 мужество;\n+5 мудрость;\n+5 выдержка;\n+5 справедливость;\nЗа каждый крит даёт +1 выдержку и +1 справедливость на 2.5 секунды."
+    },
+
+    "armor": {
+      "penitence": "Раскаяние",
+      "penitenceDescription": "+3 мужество;\n+1 справедливость;\nМгновенно восстанавливает 20 SP в начале паники.",
+
+      "redEyes": "Красные глаза", 
+      "redEyesDescription": "+3 мужество;\n+1 мудрость;\n+4 выдержка.",
+
+      "harvest": "Жатва",
+      "harvestDescription": "+5 мужество;\n+5 выдержка;\n-999 мудрость.",
+
+      "heaven": "Рай",
+      "heavenDescription": "+4 мужество;\n+5 мудрость;\n+6 выдержка;\n+3 справедливость.",
+
+      "smile": "Улыбка",
+      "smileDescription": "+6 мужество;\n+2 мудрость;\n+2 выдержка;\n+2 справедливость;\nВ течение 5 секунд после паники получает +5 мужества, +5 выдержки и +5 справедливости.",
+
+      "twilight": "Сумерки",
+      "twilightDescription": "+10 мужество;\n+10 мудрость;\n+10 выдержка;\n+10 справедливость;\n50% шанс мгновенно восстановиться при панике."
+    }
   }
 }

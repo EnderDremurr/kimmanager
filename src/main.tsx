@@ -13,7 +13,10 @@ function forwardConsole(
   const original = console[fnName];
   console[fnName] = (message) => {
     original(message);
-    logger(message);
+
+    if (typeof message === "string") {
+      logger(message);
+    }
   };
 }
 

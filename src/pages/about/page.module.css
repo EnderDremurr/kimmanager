@@ -16,3 +16,16 @@
 /* .link {
   @apply text-limbus-500 transition-all duration-300 cursor-pointer;
 } */
+
+.glupo {
+  @apply flex items-center justify-center gap-0.5 right-0 top-26 w-24 absolute
+    text-xs font-bold text-limbus-500
+    cursor-pointer
+    p-1 rounded-md text-center
+    border border-limbus-500
+  ;
+}
+
+.glupo:hover {
+  @apply bg-limbus-500 text-limbus-50;
+}

@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styles from "./page.module.css";
 import Kim from "./kim";
+import { NavLink } from "react-router";
 
 function Page() {
   const { t } = useTranslation();
@@ -44,6 +45,10 @@ function Page() {
       </div>
 
       <Kim />
+
+      <NavLink to="/about/glupo" className={styles.glupo}>
+        {t("about.glupo")}
+      </NavLink>
 
       <span className="absolute bottom-1 right-1 text-xs text-limbus-600 select-none italic">
         {`/pmg/`}

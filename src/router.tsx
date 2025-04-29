@@ -9,6 +9,8 @@ import { rootStore } from "@/stores";
 import { MainLayout } from "./layouts/main";
 import Fallback from "@/components/fallback/fallback";
 import ErrorBoundary from "@/components/error-boundary/error-boundary";
+import { GlupoPage } from "@/pages/glupo";
+import { GlupoShopPage } from "@/pages/glupo-shop";
 
 export const routes: RouteObject[] = [
   {
@@ -51,6 +53,15 @@ export const routes: RouteObject[] = [
           {
             path: "/about",
             element: <AboutPage />,
+          },
+
+          {
+            path: "/about/glupo",
+            element: <GlupoPage />,
+          },
+          {
+            path: "/about/glupo/shop",
+            element: <GlupoShopPage />,
           },
         ],
       },
