@@ -1,0 +1,11 @@
+services:
+  update-gist:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./update_gist/localizations.toml:/app/localizations.toml
+
+    env_file:
+      - .env

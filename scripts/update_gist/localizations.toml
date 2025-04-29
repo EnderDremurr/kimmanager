@@ -5,7 +5,6 @@ authors = ["Knightey", "Disaer", "Mellison", "Mermera"]
 flag = "RU"
 icon = "https://github.com/Crescent-Corporation/LimbusCompanyBusRUS/raw/LC_branch_ORIGINAL/Localize/Readme/Crescent_Button.png"
 format = "new"
-fonts = []
 
 [[ru-CresCorp.fonts]]
 url = "https://github.com/kimght/LimbusFonts/releases/download/v1.8.0/merged_font.ttf"

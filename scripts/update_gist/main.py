@@ -2,8 +2,13 @@ import requests
 import os
 import toml
 import json
+import time
+import schedule
+import logging
 
+from pathlib import Path
 from typing import TypedDict, Literal
+from argparse import ArgumentParser
 
 
 class Localization(TypedDict):
@@ -52,13 +57,21 @@ def get_latest_release(repo: str, localization_asset: str | None = None) -> tupl
 
 
 def main() -> int:
+    logging.info("Checking for localizations updates")
+
     gist_id = os.environ["GITHUB_GIST_ID"]
     gist_owner = os.environ["GITHUB_GIST_OWNER"]
     gist_token = os.environ["GITHUB_TOKEN"]
 
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    localizations_path = os.path.join(script_dir, "localizations.toml")
-    with open(localizations_path, "r") as f:
+    script_dir = Path(__file__).parent.absolute()
+    
+    localizations_path = script_dir / "localizations.toml"
+    
+    if not localizations_path.exists() or not localizations_path.is_file():
+        logging.error(f"Localizations file not found: {localizations_path}")
+        return 1
+    
+    with localizations_path.open("r") as f:
         localizations = toml.load(f)
 
     current_contents = requests.get(
@@ -75,7 +88,7 @@ def main() -> int:
             localization_asset = data.get("localization_asset")
             version, description, data_url, size = get_latest_release(data["repo"], localization_asset)
         except Exception as e:
-            print(f"Error getting latest release for {localization_id}: {e}")
+            logging.error(f"Error getting latest release for {localization_id}: {e}")
             if current_localizations.get(localization_id) is not None:
                 version = current_localizations[localization_id]["version"]
                 description = current_localizations[localization_id]["description"]
@@ -103,7 +116,7 @@ def main() -> int:
     }
 
     if processed == current_localizations:
-        print("No changes to the localizations")
+        logging.info("No changes to the localizations")
         return 0
     
     content = json.dumps(
@@ -119,12 +132,33 @@ def main() -> int:
     )
 
     if response.status_code != 200:
-        print(f"Failed to update gist: {response.status_code} {response.text}")
+        logging.error(f"Failed to update gist: {response.status_code} {response.text}")
         return 1
 
-    print("Gist updated successfully")
+    logging.info("Gist updated successfully")
     return 0
 
 
 if __name__ == "__main__":
-    exit(main())
+    parser = ArgumentParser()
+    parser.add_argument("--schedule", action="store_true", default=False)
+    parser.add_argument("--interval", type=int, default=5)
+    parser.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"])
+    args = parser.parse_args()
+
+    logging.basicConfig(
+        level=getattr(logging, args.log_level),
+        format="%(asctime)s [%(levelname)s]: %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S"
+    )
+
+    if not args.schedule:
+        exit(main())
+    
+    else:
+        logging.info(f"Scheduling updates every {args.interval} minutes")
+        schedule.every(args.interval).minutes.do(main)
+
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
