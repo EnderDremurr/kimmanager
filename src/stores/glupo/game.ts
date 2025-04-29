@@ -21,7 +21,7 @@ type GlupoData = {
   rotation: number;
   rotationVelocity: number;
   rotationDamping: number;
-}
+};
 
 class Glupo implements Drawable {
   public data: GlupoData = {
@@ -42,7 +42,7 @@ class Glupo implements Drawable {
 
   public draw(props: DrawProps) {
     const { ctx, canvas, assets } = props;
-    
+
     ctx.save();
 
     let glupo = assets["glupo.idle"].img;
@@ -54,7 +54,7 @@ class Glupo implements Drawable {
 
     const glupoWidth = glupo.width;
     const glupoHeight = glupo.height;
-    const glupoScale = .15;
+    const glupoScale = 0.15;
 
     // Draw shadow ellipse under the character
     ctx.fillStyle = "rgba(0,0,0,0.1)";
@@ -62,13 +62,14 @@ class Glupo implements Drawable {
 
     ctx.translate(canvas.width / 2, canvas.height / 2);
 
-    const maxRotation = 10 * Math.PI / 180;
+    const maxRotation = (10 * Math.PI) / 180;
 
     ctx.ellipse(
       0,
-      glupoHeight * glupoScale / 2 - 20,
-      glupoWidth * glupoScale / 2 + Math.abs(this.data.rotation / maxRotation) * 5,
-      glupoHeight * glupoScale / 6,
+      (glupoHeight * glupoScale) / 2 - 20,
+      (glupoWidth * glupoScale) / 2 +
+        Math.abs(this.data.rotation / maxRotation) * 5,
+      (glupoHeight * glupoScale) / 6,
       0,
       0,
       Math.PI * 2
@@ -92,8 +93,8 @@ class Glupo implements Drawable {
 
     ctx.drawImage(
       glupo,
-      -glupoWidth * glupoScale / 2,
-      -glupoHeight * glupoScale / 2,
+      (-glupoWidth * glupoScale) / 2,
+      (-glupoHeight * glupoScale) / 2,
       glupoWidth * glupoScale,
       glupoHeight * glupoScale
     );
@@ -104,7 +105,7 @@ class Glupo implements Drawable {
       y: canvas.height * 0.4,
       width: 150,
       height: 200,
-    }
+    };
 
     ctx.restore();
   }
@@ -128,7 +129,7 @@ type ParticleData = {
   timeLeft: number;
   gravity: number;
   onDestroy?: (particle: ParticleData) => void;
-}
+};
 
 class Particles implements Drawable {
   public particles: ParticleData[] = [];
@@ -141,27 +142,27 @@ class Particles implements Drawable {
 
       particle.x += particle.vx;
       particle.y += particle.vy;
-      
+
       particle.vy += particle.gravity;
-      
+
       particle.rotation = Math.atan2(particle.vy, particle.vx);
-      
+
       if (particle.x <= 0 || particle.x >= canvas.width - particle.size) {
         particle.vx = -particle.vx * 0.7;
         particle.x = particle.x <= 0 ? 0 : canvas.width - particle.size;
       }
-      
+
       if (particle.y <= 0) {
         particle.vy = Math.abs(particle.vy) * 0.7;
         particle.y = 0;
       }
-      
+
       if (particle.y >= canvas.height) {
         particle.onDestroy?.(particle);
         this.particles.splice(i, 1);
         continue;
       }
-      
+
       particle.opacity -= particle.opacityDecay;
       if (particle.opacity <= 0) {
         particle.onDestroy?.(particle);
@@ -175,13 +176,19 @@ class Particles implements Drawable {
         this.particles.splice(i, 1);
         continue;
       }
-      
+
       ctx.save();
       ctx.globalAlpha = particle.opacity;
       ctx.translate(particle.x, particle.y);
       ctx.rotate(particle.rotation);
       // ctx.filter = `hue-rotate(48deg)`;
-      ctx.drawImage(assets[particle.asset].img, -particle.size/2, -particle.size/2, particle.size, particle.size);
+      ctx.drawImage(
+        assets[particle.asset].img,
+        -particle.size / 2,
+        -particle.size / 2,
+        particle.size,
+        particle.size
+      );
       ctx.restore();
     }
   }
@@ -197,7 +204,7 @@ type WeaponData = {
   speed: number;
   angle: number;
   visible: boolean;
-}
+};
 
 class Weapon implements Drawable {
   public data: WeaponData = {
@@ -216,7 +223,7 @@ class Weapon implements Drawable {
 
   public draw(props: DrawProps) {
     const { ctx, canvas, assets } = props;
-    
+
     if (!this.data.visible) {
       return;
     }
@@ -238,17 +245,17 @@ class Weapon implements Drawable {
 
     ctx.translate(x, y);
 
-    const deltaAngle = Math.tanh(
-      this.data.speed / (canvas.width * 0.05)
-    ) * (15 * Math.PI / 180);
+    const deltaAngle =
+      Math.tanh(this.data.speed / (canvas.width * 0.05)) *
+      ((15 * Math.PI) / 180);
 
     this.data.angle = deltaAngle;
     ctx.rotate(Math.PI / 2 - deltaAngle);
 
     ctx.drawImage(
       weapon,
-      -weaponWidth * weaponScale / 2,
-      -weaponHeight * weaponScale / 2,
+      (-weaponWidth * weaponScale) / 2,
+      (-weaponHeight * weaponScale) / 2,
       weaponWidth * weaponScale,
       weaponHeight * weaponScale
     );
@@ -310,24 +317,29 @@ class SanityGauge implements Drawable {
 
     const fillPercentage = this.data.current / maxSanity;
     const fillHeight = gaugeHeight * fillPercentage;
-    
-    const gradient = ctx.createLinearGradient(gaugeX, gaugeY + gaugeHeight - fillHeight, gaugeX, gaugeY + gaugeHeight);
-    
+
+    const gradient = ctx.createLinearGradient(
+      gaugeX,
+      gaugeY + gaugeHeight - fillHeight,
+      gaugeX,
+      gaugeY + gaugeHeight
+    );
+
     if (this.game.sanityState.isPanic) {
-      gradient.addColorStop(0, 'rgba(255, 102, 0, 0.95)');
-      gradient.addColorStop(1, 'rgba(255, 60, 0, 0.95)');
+      gradient.addColorStop(0, "rgba(255, 102, 0, 0.95)");
+      gradient.addColorStop(1, "rgba(255, 60, 0, 0.95)");
     } else {
-      gradient.addColorStop(0, 'rgba(76, 146, 228, 0.95)');
-      gradient.addColorStop(1, 'rgba(76, 124, 228, 0.95)');
+      gradient.addColorStop(0, "rgba(76, 146, 228, 0.95)");
+      gradient.addColorStop(1, "rgba(76, 124, 228, 0.95)");
     }
 
     ctx.fillStyle = gradient;
     ctx.beginPath();
     ctx.roundRect(
-      gaugeX + 3, 
-      gaugeY + gaugeHeight - fillHeight, 
-      gaugeWidth - 6, 
-      fillHeight, 
+      gaugeX + 3,
+      gaugeY + gaugeHeight - fillHeight,
+      gaugeWidth - 6,
+      fillHeight,
       5
     );
     ctx.fill();
@@ -341,7 +353,7 @@ type MouseData = {
   y: number;
   dx: number;
   dy: number;
-}
+};
 
 export class Game {
   public store: GlupoStore;
@@ -384,7 +396,8 @@ export class Game {
   }
 
   public handleMouseMove(element: HTMLCanvasElement, event: MouseEvent) {
-    const cooldown = this.store.stats!.cooldown / this.store.stats!.cooldownModifier;
+    const cooldown =
+      this.store.stats!.cooldown / this.store.stats!.cooldownModifier;
 
     const rect = element.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
@@ -392,10 +405,12 @@ export class Game {
 
     const dx = mouseX - this.mouse.x;
     const dy = mouseY - this.mouse.y;
-    const mouseSpeed = Math.sqrt(dx*dx + dy*dy);
-    
-    const distance = Math.sqrt((mouseX - this.glupo.data.x)**2 + (mouseY - this.glupo.data.y)**2);
-    
+    const mouseSpeed = Math.sqrt(dx * dx + dy * dy);
+
+    const distance = Math.sqrt(
+      (mouseX - this.glupo.data.x) ** 2 + (mouseY - this.glupo.data.y) ** 2
+    );
+
     if (
       distance < Math.max(this.glupo.data.width, this.glupo.data.height) / 2 &&
       mouseSpeed > 20 &&
@@ -420,7 +435,11 @@ export class Game {
     this.weapon.setVisible(false);
   }
 
-  public spawnBoxes(position: { x: number, y: number }, count: number, params: Partial<ParticleData> = {}) {
+  public spawnBoxes(
+    position: { x: number; y: number },
+    count: number,
+    params: Partial<ParticleData> = {}
+  ) {
     for (let i = 0; i < count; i++) {
       const angle = Math.random() * Math.PI * 2;
       const speed = 8 + Math.random() * 15;
@@ -443,7 +462,7 @@ export class Game {
     }
   }
 
-  public handleHit(position: { x: number, y: number }) {
+  public handleHit(position: { x: number; y: number }) {
     if (this.sanityState.isPanic) {
       return;
     }
@@ -451,17 +470,16 @@ export class Game {
     this.lastHitTimestamp = Date.now();
     const stats = this.store.stats!;
 
-    let count = randomRangeInt(
-      stats.minBoxes, 
-      stats.maxBoxes,
-    );
+    let count = randomRangeInt(stats.minBoxes, stats.maxBoxes);
 
     const isCritical = Math.random() < stats.criticalChance;
     const multiplier = isCritical ? stats.criticalMultiplier : 1;
 
     this.store.addBoxes(count, multiplier);
 
-    let boxesPerSecond = Math.floor((1000 / stats.realCooldown) * (stats.minBoxes + stats.maxBoxes) / 2);
+    let boxesPerSecond = Math.floor(
+      ((1000 / stats.realCooldown) * (stats.minBoxes + stats.maxBoxes)) / 2
+    );
 
     let boxAsset: ImageAssetId = "ui.box";
     if (boxesPerSecond > 128) {
@@ -497,7 +515,7 @@ export class Game {
       gravity: 0,
     });
 
-    this.glupo.addVelocity((Math.random() * 0.2 - 0.1));
+    this.glupo.addVelocity(Math.random() * 0.2 - 0.1);
     this.store.processHit({ isCritical, position });
   }
 
@@ -507,8 +525,9 @@ export class Game {
     }
 
     this.sanityState.current += amount;
-    
-    const { maxSanity, panicRestoreDelay, regenerationDelay } = this.store.stats!;
+
+    const { maxSanity, panicRestoreDelay, regenerationDelay } =
+      this.store.stats!;
 
     if (this.sanityState.current <= 0) {
       this.sanityState.current = 0;
@@ -523,7 +542,7 @@ export class Game {
       const processPanicStep = () => {
         this.sanityState.current += 1;
 
-        let target = this.store.stats?.maxSanity ?? maxSanity;
+        const target = this.store.stats?.maxSanity ?? maxSanity;
 
         if (this.sanityState.current >= target) {
           this.sanityState.isPanic = false;
@@ -533,7 +552,7 @@ export class Game {
         } else {
           setTimeout(processPanicStep, this.store.stats!.panicRestoreDelay);
         }
-      }
+      };
 
       setTimeout(processPanicStep, panicRestoreDelay);
       return;

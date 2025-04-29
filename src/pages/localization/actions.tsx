@@ -32,11 +32,17 @@ function Actions({ localization }: ActionsProps) {
             {installedVersion && (
               <>
                 {installedVersion === localization.version ? (
-                  <button onClick={handleRepair} title={t("localization.repair")}>
+                  <button
+                    onClick={handleRepair}
+                    title={t("localization.repair")}
+                  >
                     <Hammer className="w-6 h-6 shrink-0" />
                   </button>
                 ) : (
-                  <button onClick={handleRepair} title={t("localization.update")}>
+                  <button
+                    onClick={handleRepair}
+                    title={t("localization.update")}
+                  >
                     <FolderDown className="w-6 h-6 shrink-0" />
                   </button>
                 )}

@@ -14,7 +14,7 @@ type GameData = {
   riskLevel: RiskLevel;
   balance: number;
   baseStats: Stats;
-}
+};
 
 const configVersion = 1;
 
@@ -49,7 +49,7 @@ export class GlupoStore {
     temperance: 0,
     justice: 0,
   };
-  
+
   public isLoading: boolean = true;
   public error: string | null = null;
 
@@ -60,9 +60,13 @@ export class GlupoStore {
   constructor() {
     this.game = new Game(this);
 
-    makeAutoObservable(this, {
-      game: false,
-    }, { autoBind: true });
+    makeAutoObservable(
+      this,
+      {
+        game: false,
+      },
+      { autoBind: true }
+    );
 
     this.load();
 
@@ -133,7 +137,7 @@ export class GlupoStore {
 
     this.riskLevel = gameData.riskLevel;
     this.balance = gameData.balance;
-  
+
     this.baseStats = gameData.baseStats;
   }
 
@@ -200,7 +204,7 @@ export class GlupoStore {
       return null;
     }
 
-    const stats = {...this.baseStats};
+    const stats = { ...this.baseStats };
 
     if (this.selectedWeapon !== null) {
       Object.entries(this.selectedWeapon.stats).forEach(([key, value]) => {
@@ -265,7 +269,7 @@ export class GlupoStore {
 
       criticalChance += step;
     }
-    
+
     criticalChance = criticalChance / 100;
     const criticalMultiplier = this.selectedWeapon?.critMultiplier ?? 2;
 
@@ -298,7 +302,7 @@ export class GlupoStore {
 
       // Extra
       boxPrice,
-    }
+    };
   }
 
   public get statsLevelsCost() {
@@ -311,7 +315,7 @@ export class GlupoStore {
       prudence: this.statsLevelsCost.length,
       temperance: this.statsLevelsCost.length,
       justice: this.statsLevelsCost.length,
-    }
+    };
   }
 
   public get statsUpgradeCost() {
@@ -320,7 +324,7 @@ export class GlupoStore {
       prudence: this.statsLevelsCost[this.baseStats?.prudence ?? 0] ?? null,
       temperance: this.statsLevelsCost[this.baseStats?.temperance ?? 0] ?? null,
       justice: this.statsLevelsCost[this.baseStats?.justice ?? 0] ?? null,
-    }
+    };
   }
 
   public get canUpgradeStats() {
@@ -333,22 +337,32 @@ export class GlupoStore {
         prudence: false,
         temperance: false,
         justice: false,
-      }
+      };
     }
 
     return {
-      fortitude: upgradeCosts.fortitude !== null && this.balance >= upgradeCosts.fortitude,
-      prudence: upgradeCosts.prudence !== null && this.balance >= upgradeCosts.prudence,
-      temperance: upgradeCosts.temperance !== null && this.balance >= upgradeCosts.temperance,
-      justice: upgradeCosts.justice !== null && this.balance >= upgradeCosts.justice,
-    }
+      fortitude:
+        upgradeCosts.fortitude !== null &&
+        this.balance >= upgradeCosts.fortitude,
+      prudence:
+        upgradeCosts.prudence !== null && this.balance >= upgradeCosts.prudence,
+      temperance:
+        upgradeCosts.temperance !== null &&
+        this.balance >= upgradeCosts.temperance,
+      justice:
+        upgradeCosts.justice !== null && this.balance >= upgradeCosts.justice,
+    };
   }
 
   public upgradeStats(stat: keyof Stats) {
     const stats = this.playerStats;
     const upgradeCosts = this.statsUpgradeCost;
 
-    if (stats === null || upgradeCosts[stat] === null || this.baseStats === null) {
+    if (
+      stats === null ||
+      upgradeCosts[stat] === null ||
+      this.baseStats === null
+    ) {
       return;
     }
 
@@ -379,9 +393,11 @@ export class GlupoStore {
       [RiskLevel.Aleph]: null,
     }[this.riskLevel ?? RiskLevel.Zayin];
   }
-  
+
   public get canUpgradeRisk() {
-    return this.riskUpgradeCost !== null && this.balance >= this.riskUpgradeCost;
+    return (
+      this.riskUpgradeCost !== null && this.balance >= this.riskUpgradeCost
+    );
   }
 
   public get nextRiskLevel() {
@@ -408,7 +424,9 @@ export class GlupoStore {
   }
 
   public get weaponsShop() {
-    const orderedWeapons = Object.values(weapons).sort((a, b) => a.cost - b.cost);
+    const orderedWeapons = Object.values(weapons).sort(
+      (a, b) => a.cost - b.cost
+    );
 
     return orderedWeapons.map((weapon) => ({
       ...weapon,
@@ -472,7 +490,9 @@ export class GlupoStore {
       return;
     }
 
-    this.balance = isFinite(this.maxBalance) ? this.maxBalance : this.balance + 1000000;
+    this.balance = isFinite(this.maxBalance)
+      ? this.maxBalance
+      : this.balance + 1000000;
   }
 
   public get resetCost() {

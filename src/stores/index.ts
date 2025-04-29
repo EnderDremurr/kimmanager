@@ -16,7 +16,7 @@ export class RootStore {
     this.state = new StateStore();
     this.localizations = new LocalizationsStore();
     this.actions = new ActionsStore();
-    
+
     this.glupo = new GlupoStore();
   }
 }

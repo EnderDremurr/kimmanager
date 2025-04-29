@@ -25,39 +25,42 @@ function Risk() {
   const nextRiskLevel = glupo.nextRiskLevel;
 
   return (
-    <button 
-      onClick={() => glupo.upgradeRisk()} 
-      className={styles.container} 
+    <button
+      onClick={() => glupo.upgradeRisk()}
+      className={styles.container}
       disabled={!nextRiskLevel || !glupo.canUpgradeRisk}
     >
-      <img 
-        src={RiskLevelIcons[nextRiskLevel ?? glupo.riskLevel!]} 
-        alt={nextRiskLevel ?? glupo.riskLevel!} 
+      <img
+        src={RiskLevelIcons[nextRiskLevel ?? glupo.riskLevel!]}
+        alt={nextRiskLevel ?? glupo.riskLevel!}
         className={styles.next}
       />
 
       {nextRiskLevel && (
         <>
-          <img src={Enkephalin} alt="Enkephalin" className={styles.enkephalin} />
-          <span>
-            {glupo.maxBalance}
-          </span>
+          <img
+            src={Enkephalin}
+            alt="Enkephalin"
+            className={styles.enkephalin}
+          />
+          <span>{glupo.maxBalance}</span>
           <ArrowRight className="w-4 h-4" />
-          <img src={Enkephalin} alt="Enkephalin" className={styles.enkephalin} />
+          <img
+            src={Enkephalin}
+            alt="Enkephalin"
+            className={styles.enkephalin}
+          />
           <span>
             {isFinite(glupo.riskBalanceLimits[nextRiskLevel])
               ? glupo.riskBalanceLimits[nextRiskLevel]
-              : "∞"
-            }
+              : "∞"}
           </span>
         </>
       )}
-      
-      <span className={styles.cost}>
-        {glupo.riskUpgradeCost ?? "max"}
-      </span>
+
+      <span className={styles.cost}>{glupo.riskUpgradeCost ?? "max"}</span>
     </button>
-  )
+  );
 }
 
 export default observer(Risk);

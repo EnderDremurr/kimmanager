@@ -28,10 +28,10 @@ function Armor() {
             <p>{t(armor.description)}</p>
           </div>
           <div>
-            {armor.isSelected && <Check className="w-6 h-6 shrink-0 text-limbus-500" />}
-            {!armor.isBought && (
-              <p>{armor.cost}</p>
+            {armor.isSelected && (
+              <Check className="w-6 h-6 shrink-0 text-limbus-500" />
             )}
+            {!armor.isBought && <p>{armor.cost}</p>}
           </div>
         </button>
       ))}

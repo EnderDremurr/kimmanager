@@ -10,7 +10,7 @@ export const ArmorIds = {
   Twilight: "armor.twilight",
 } as const;
 
-export type ArmorId = typeof ArmorIds[keyof typeof ArmorIds];
+export type ArmorId = (typeof ArmorIds)[keyof typeof ArmorIds];
 
 class Penitence implements Armor {
   public readonly id = ArmorIds.Penitence;
@@ -29,7 +29,7 @@ class Penitence implements Armor {
   public onPanic(store: GlupoStore) {
     store.game.sanityState.current = Math.min(
       store.game.sanityState.current + 20,
-      store.stats!.maxSanity,
+      store.stats!.maxSanity
     );
   }
 }
@@ -46,7 +46,7 @@ class RedEyes implements Armor {
     prudence: 1,
     temperance: 4,
     justice: 0,
-  }; 
+  };
 }
 
 class Harvest implements Armor {

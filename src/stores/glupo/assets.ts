@@ -34,7 +34,6 @@ import UiRiskHe from "@/assets/icons/glupo/ui/risk-he.webp";
 import UiRiskWaw from "@/assets/icons/glupo/ui/risk-waw.webp";
 import UiRiskAleph from "@/assets/icons/glupo/ui/risk-aleph.webp";
 
-
 const imageAssets = {
   // Weapons
   "weapon.penitence": WeaponPenitence,
@@ -79,23 +78,28 @@ const imageAssets = {
 } as const;
 
 export type ImageAssetId = keyof typeof imageAssets;
-export type ImageAssets = Record<ImageAssetId, { src: string; img: HTMLImageElement }>;
+export type ImageAssets = Record<
+  ImageAssetId,
+  { src: string; img: HTMLImageElement }
+>;
 
 export const loadImageAssets = async (): Promise<ImageAssets> => {
-  const assets = await Promise.all(Object.entries(imageAssets).map(async ([key, value]) => {
-    const image = new Image();
-    
-    await new Promise((resolve, reject) => {
-      image.onload = resolve;
-      image.onerror = () => {
-        console.error(`Failed to load image: ${value}`);
-        reject(new Error(`Failed to load image: ${value}`));
-      };
-      image.src = value;
-    });
+  const assets = await Promise.all(
+    Object.entries(imageAssets).map(async ([key, value]) => {
+      const image = new Image();
 
-    return [key, { src: value, img: image }];
-  }));
+      await new Promise((resolve, reject) => {
+        image.onload = resolve;
+        image.onerror = () => {
+          console.error(`Failed to load image: ${value}`);
+          reject(new Error(`Failed to load image: ${value}`));
+        };
+        image.src = value;
+      });
+
+      return [key, { src: value, img: image }];
+    })
+  );
 
   return Object.fromEntries(assets) as ImageAssets;
 };

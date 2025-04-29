@@ -34,8 +34,17 @@ function Page() {
         </NavLink>
 
         <div className={cn(styles.balance, glupo.isFullBalance && styles.full)}>
-          <p>{glupo.balance}/{isFinite(glupo.maxBalance) ? glupo.maxBalance : "∞"}</p>
-          <img src={Enkephalin} alt="Enkephalin" width={48} height={24} onClick={glupo.cheat}/>
+          <p>
+            {glupo.balance}/
+            {isFinite(glupo.maxBalance) ? glupo.maxBalance : "∞"}
+          </p>
+          <img
+            src={Enkephalin}
+            alt="Enkephalin"
+            width={48}
+            height={24}
+            onClick={glupo.cheat}
+          />
         </div>
       </div>
 

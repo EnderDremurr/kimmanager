@@ -28,10 +28,10 @@ function Weapons() {
             <p>{t(weapon.description)}</p>
           </div>
           <div>
-            {weapon.isSelected && <Check className="w-6 h-6 shrink-0 text-limbus-500" />}
-            {!weapon.isBought && (
-              <p>{weapon.cost}</p>
+            {weapon.isSelected && (
+              <Check className="w-6 h-6 shrink-0 text-limbus-500" />
             )}
+            {!weapon.isBought && <p>{weapon.cost}</p>}
           </div>
         </button>
       ))}

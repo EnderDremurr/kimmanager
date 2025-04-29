@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const formatNumber = (value: number) => {
   return value.toFixed(2).replace(/\.?0+$/, "");
-}
+};
 
 function Stats() {
   const { glupo } = rootStore;
@@ -22,13 +22,15 @@ function Stats() {
   return (
     <div className={styles.stats}>
       <div className={styles.container}>
-        <button 
+        <button
           onClick={() => glupo.upgradeStats("fortitude")}
           className={styles.stat}
           disabled={!canUpgrade.fortitude}
-          style={{
-            "--progress": `${baseStats.fortitude / maxStats.fortitude * 100}%`
-          } as React.CSSProperties}
+          style={
+            {
+              "--progress": `${(baseStats.fortitude / maxStats.fortitude) * 100}%`,
+            } as React.CSSProperties
+          }
         >
           <p>{t("glupo.shop.stats.fortitude")}</p>
           <span>{upgradeCost.fortitude ?? "max"}</span>
@@ -44,13 +46,15 @@ function Stats() {
       </div>
 
       <div className={styles.container}>
-        <button 
+        <button
           onClick={() => glupo.upgradeStats("prudence")}
-          className={styles.stat} 
+          className={styles.stat}
           disabled={!canUpgrade.prudence}
-          style={{
-            "--progress": `${baseStats.prudence / maxStats.prudence * 100}%`
-          } as React.CSSProperties}
+          style={
+            {
+              "--progress": `${(baseStats.prudence / maxStats.prudence) * 100}%`,
+            } as React.CSSProperties
+          }
         >
           <p>{t("glupo.shop.stats.prudence")}</p>
           <span>{upgradeCost.prudence ?? "max"}</span>
@@ -67,14 +71,16 @@ function Stats() {
       </div>
 
       <div className={styles.container}>
-        <button 
+        <button
           onClick={() => glupo.upgradeStats("temperance")}
-          className={styles.stat} 
+          className={styles.stat}
           disabled={!canUpgrade.temperance}
-          style={{
-            "--progress": `${baseStats.temperance / maxStats.temperance * 100}%`
-          } as React.CSSProperties}
-        > 
+          style={
+            {
+              "--progress": `${(baseStats.temperance / maxStats.temperance) * 100}%`,
+            } as React.CSSProperties
+          }
+        >
           <p>{t("glupo.shop.stats.temperance")}</p>
           <span>{upgradeCost.temperance ?? "max"}</span>
         </button>
@@ -82,7 +88,7 @@ function Stats() {
           {t("glupo.shop.stats.temperanceDescription", {
             base: baseStats.temperance,
             total: totalStats.temperance,
-              criticalChance: `${formatNumber(stats.criticalChance * 100)}%`,
+            criticalChance: `${formatNumber(stats.criticalChance * 100)}%`,
             criticalMultiplier: `x${formatNumber(stats.criticalMultiplier)}`,
           })}
         </div>
@@ -91,11 +97,13 @@ function Stats() {
       <div className={styles.container}>
         <button
           onClick={() => glupo.upgradeStats("justice")}
-          className={styles.stat} 
+          className={styles.stat}
           disabled={!canUpgrade.justice}
-          style={{
-            "--progress": `${baseStats.justice / maxStats.justice * 100}%`
-          } as React.CSSProperties}
+          style={
+            {
+              "--progress": `${(baseStats.justice / maxStats.justice) * 100}%`,
+            } as React.CSSProperties
+          }
         >
           <p>{t("glupo.shop.stats.justice")}</p>
           <span>{upgradeCost.justice ?? "max"}</span>
@@ -111,7 +119,7 @@ function Stats() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default observer(Stats);

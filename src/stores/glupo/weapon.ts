@@ -11,7 +11,7 @@ export const WeaponIds = {
   Twilight: "weapon.twilight",
 } as const;
 
-export type WeaponId = typeof WeaponIds[keyof typeof WeaponIds];
+export type WeaponId = (typeof WeaponIds)[keyof typeof WeaponIds];
 
 class Penitence implements Weapon {
   public readonly id = WeaponIds.Penitence;
@@ -126,7 +126,7 @@ class Harvest implements Weapon {
       bonus = bonus * this.critMultiplier;
     }
 
-    bonus = Math.floor(bonus / 2 + Math.random() * bonus / 2);
+    bonus = Math.floor(bonus / 2 + (Math.random() * bonus) / 2);
 
     store.addBalance(bonus);
     game.spawnBoxes(position, Math.ceil(bonus / 64), {
@@ -171,7 +171,7 @@ class Heaven implements Weapon {
     } else {
       bonus = 1;
     }
-    
+
     store.addBoxes(bonus, isCritical ? 2 : 1);
     game.spawnBoxes(position, bonus, {
       size: isCritical ? 48 : 32,
@@ -227,7 +227,7 @@ class Smile implements Weapon {
 
   public onHit(store: GlupoStore, { position }: HitParams) {
     const game = store.game;
-    
+
     if (game.sanityState.current >= store.stats!.maxSanity / 2) {
       game.changeSanity(-25);
       return;
@@ -235,7 +235,7 @@ class Smile implements Weapon {
 
     game.changeSanity(-5);
     let bonus = 5000;
-    bonus = Math.floor(bonus / 2 + Math.random() * bonus / 2);
+    bonus = Math.floor(bonus / 2 + (Math.random() * bonus) / 2);
 
     game.spawnBoxes(position, Math.ceil(bonus / 1000), {
       size: 64,

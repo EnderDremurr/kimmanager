@@ -69,7 +69,7 @@ function Page() {
     if (!canvasRef.current) {
       return;
     }
-    
+
     const handleMouseMove = (event: MouseEvent) => {
       if (!canvasRef.current) {
         return;

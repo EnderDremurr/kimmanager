@@ -8,7 +8,11 @@ function Reset() {
   const { t } = useTranslation();
 
   return (
-    <button className={styles.container} onClick={glupo.reset} disabled={glupo.balance < glupo.resetCost}>
+    <button
+      className={styles.container}
+      onClick={glupo.reset}
+      disabled={glupo.balance < glupo.resetCost}
+    >
       <p>{t("glupo.shop.reset")}</p>
       <span>{glupo.resetCost}</span>
     </button>
