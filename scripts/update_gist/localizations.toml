@@ -42,6 +42,7 @@ authors = ["Helck", "KreeperHLC", "VaNeSS", "Master_1"]
 flag = "RU"
 icon = "https://github.com/Divine-Company/DivineCompany_RussianTranslationDepartment/raw/main/Icon_Divine.png"
 format = "auto"
+fonts = []
 
 [hant-LTM]
 repo = "LimbusTraditionalMandarin/storyline"
