@@ -18,6 +18,7 @@
 # Доступные переводы
 - [**MTL**](https://github.com/kimght/LimbusCompanyRuMTL) (RU)
 - [**Crescent Corporation**](https://github.com/Crescent-Corporation/LimbusCompanyBusRUS) (RU)
+- [**Divine Company**](https://github.com/Divine-Company/DivineCompany_RussianTranslationDepartment) (RU)
 - [**Limbus Traditional Mandarin**](https://github.com/LimbusTraditionalMandarin) (HANT)
 
 # Установка
