@@ -17,6 +17,9 @@ function Page() {
         <ul className={styles.list}>
           <li>notxart - {t("about.translator")} (HANT)</li>
         </ul>
+        <ul className={styles.list}>
+          <li>DaniUltraReal - {t("about.translator")} (ES)</li>
+        </ul>
       </div>
       <div className={styles.section}>
         <h2 className="text-lg">{t("about.links")}</h2>

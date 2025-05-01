@@ -7,12 +7,14 @@ import type { LanguageDetectorAsyncModule } from "i18next";
 import en from "./locales/en.json";
 import ru_RU from "./locales/ru-RU.json";
 import zh_Hant from "./locales/zh-Hant.json";
+import es_MX from "./locales/es-MX.json";
 
 // Part II: Resource definition
 const resources = {
   en: { translation: en },
   ru_RU: { translation: ru_RU },
   zh_Hant: { translation: zh_Hant },
+  es_MX: { translation: es_MX },
 };
 
 // Part III: Language display name
@@ -20,6 +22,7 @@ export const languageNames = {
   en: "English",
   ru_RU: "Русский",
   zh_Hant: "繁體中文",
+  es_MX: "Español",
 } as const;
 
 const languageDetector: LanguageDetectorAsyncModule = {
@@ -43,6 +46,8 @@ i18n
       "zh-HK": ["zh_Hant", "en"],
       "ru-RU": ["ru_RU", "en"],
       "ru-*": ["ru_RU", "en"],
+      "es-MX": ["es_MX", "en"],
+      "es-*": ["es_MX", "en"],
       default: ["en"],
     },
     resources,

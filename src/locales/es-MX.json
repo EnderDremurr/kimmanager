@@ -1,0 +1,142 @@
+{
+  "title": "Limbus Localization Manager",
+  "home": {
+    "play": "Actualizar y jugar",
+    "title": "Limbus Localization Manager",
+    "console": "Consola",
+    "updateAvailable": "¡Actualización disponible!",
+    "noLocalizationsInstalled": "Sin localizaciones instaladas",
+    "add": "Agregar localización"
+  },
+  "settings": {
+    "interfaceLanguage": "Lenguaje de la Interfaz",
+    "source": "Orígen",
+    "title": "Ajustes",
+    "gameDirectory": "Directorio personalizado del juego",
+    "gameDirectoryDefault": "[Usando por defecto]"
+  },
+  "localization": {
+    "authors": "Autores",
+    "select": "Selecciona una localización",
+    "notFound": "Localización no encontrada",
+    "uninstall": "Desinstalar",
+    "repair": "Reparar",
+    "update": "Actualizar",
+    "add": "Añadir",
+    "installed": "{{localization}} ({{version}}) instalada",
+    "uninstalled": "{{localization}} desinstalada",
+    "repaired": "{{localization}} reinstalada"
+  },
+  "localizations": {
+    "loading": "Cargando localizaciones",
+    "error": "¡No se pudo cargar la lista de localizaciones!",
+    "tryAgain": "Intentar de nuevo",
+    "changeSource": "Cambiar orígen"
+  },
+  "error": {
+    "install": "Instalación de {{localization}} fallida",
+    "setGameDirectory": "Cambio de directorio del juego fallido",
+    "somethingWentWrong": "¡Algo falló!",
+    "updateAndPlay": "¡Actualización fallida!",
+    "uninstall": "Desinstalación de {{localization}} fallida",
+    "repair": "Reparación de {{localization}} fallida"
+  },
+  "log": {
+    "started": "Buscando actualizaciones...",
+    "unknownLocalization": "Se encontró una localización desconocida: '{{localization}}'",
+    "upToDate": "La localización '{{localization}}' está actualizada",
+    "updating": "Actualizando localización '{{localization}}'",
+    "updateFinished": "Localización '{{localization}}' actualizada",
+    "startingGame": "Iniciando juego",
+    "finished": "Juego iniciado",
+    "readChangeLog": "Leer notas de actualización"
+  },
+  "about": {
+    "title": "Acerca de",
+    "credits": "Creditos",
+    "developers": "Desarrolladores",
+    "translators": "Traductores",
+    "links": "Enlaces útiles",
+    "source": "Código fuente",
+    "issues": "Soporte",
+    "developer": "Desarrollador",
+    "translator": "Traductor",
+    "glupo": "▸ Lobotomy 2"
+  },
+  "glupo": {
+    "loading": "Cargando",
+    "title": "Lobotomy 2",
+    "balance": "PE",
+
+    "shop": {
+      "button": "Mostrar Bitácora de Investigación",
+      "title": "Bitácora de Investigación",
+      "reset": "Activar Protocolo TT2",
+
+      "section": {
+        "stats": "Estadísticas",
+        "risk": "Nivel de Riesgo",
+        "weapons": "Armas",
+        "armor": "Armadura",
+        "reset": "Protocolo TT2"
+      },
+
+      "stats": {
+        "fortitude": "Fortitud",
+        "fortitudeDescription": "Nivel: {{base}} (total: {{total}})\nCajas-PE por golpe: {{min}} - {{max}}",
+
+        "prudence": "Prudencia",
+        "prudenceDescription": "Nivel: {{base}} (total: {{total}})\nPC Máximos: {{max}}\nRegeneración de PC: {{regeneration}}ms\nTiempo de recuperación del pánico: {{panicRestore}}ms",
+
+        "temperance": "Templanza",
+        "temperanceDescription": "Nivel: {{base}} (total: {{total}})\nPorcentaje de crítico: {{criticalChance}}\nMultiplicador de crítico: {{criticalMultiplier}}",
+
+        "justice": "Justicia",
+        "justiceDescription": "Nivel: {{base}} (total: {{total}})\nBonificación de velocidad: {{speedBonus}}%\nEnfriamiento para golpes: {{cooldown}}ms\nEnfriamiento para armas: {{weaponCooldown}}ms"
+      }
+    },
+
+    "weapons": {
+      "penitence": "Penitencia",
+      "penitenceDescription": "Cura 5 PC por golpe crítico",
+
+      "redEyes": "Ojos Rojos",
+      "redEyesDescription": "Fortitud +4;\nAleatoriamente aparece hasta 3 arañas que dan templanza +1 cada una",
+
+      "harvest": "Cosecha",
+      "harvestDescription": "Prudencia +2;\nPE extra por cada golpe si se tiene menos de 5 prudencia;\nBonificación más grande si la prudencia es igual a 0.",
+
+      "heaven": "Paraíso",
+      "heavenDescription": "PE extra por golpes verticales.",
+
+      "goldRush": "Fiebre del Oro",
+      "goldRushDescription": "Fortitud +4;\nTemplanza -2;\nVelocidad de ataque extremadamente rápida.",
+
+      "smile": "Sonrisa",
+      "smileDescription": "Fortitud +5;\nSe vuelve más fuerte si se tiene menos de la mitad de PC.",
+
+      "twilight": "Crepúsculo",
+      "twilightDescription": "Fortitud +5;\nPrudencia +5;\nTemplanza +5;\nJusticia +5;\nPor golpe crítico, gana templanza +1 y justicia +1 por 2.5 segundos."
+    },
+
+    "armor": {
+      "penitence": "Penitencia",
+      "penitenceDescription": "Fortitud +3;\nJusticia +1;\nInmediatamente recuperar 20 PC al entrar en pánico.",
+
+      "redEyes": "Ojos Rojos",
+      "redEyesDescription": "Fortitud +3;\nPrudencia +1;\nTemplanza +4.",
+
+      "harvest": "Cosecha",
+      "harvestDescription": "Fortitud +5;\nTemplanza +5;\nPrudencia -999.",
+
+      "heaven": "Paraíso",
+      "heavenDescription": "Fortitud +4;\nPrudencia +5;\nTemplanza +6;\nJusticia +3.",
+
+      "smile": "Sonrisa",
+      "smileDescription": "Fortitud +6;\nPrudencia +2;\nTemplanza +2;\nJusticia +2;\nDurante 5 segundos después del pánico, gana fortitud +5, templanza +5 y justicia +5.",
+
+      "twilight": "Crepúsculo",
+      "twilightDescription": "Fortitud +10;\n+Prudencia +10;\nTemplanza +10;\nJusticia +10;\n50% de probabilidad de recuperarse inmediatamente del pánico."
+    }
+  }
+}
