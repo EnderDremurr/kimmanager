@@ -44,6 +44,41 @@ icon = "https://github.com/Divine-Company/DivineCompany_RussianTranslationDepart
 format = "auto"
 fonts = []
 
+[es-DreamsOffice]
+repo = "Dreams-Office/LimbusCompanySpanishTranslationTeam"
+name = "Dreams Office"
+authors = [
+  "Mokoutanized",
+  "DjPixelES",
+  "Oriane",
+  "capslockSleep",
+  "Herkenni",
+  "Nuklear",
+  "Frost-12",
+  "Kurotomaki",
+  "Weeblations",
+  "JadedVoid",
+  "Seismol76",
+  "Polori",
+  "DrEnnnnigma",
+  "Melky",
+  "Kaunto",
+  "LuckAfter",
+  "Cleoh",
+  "DaniUltraReal",
+  "Hidalgotraductor",
+  "lejoram",
+  "Ubanaciel",
+  "Wilson2Step",
+  "Raum2901",
+  "Donki-nari",
+  "Laloh-id"
+]
+flag = "MX"
+icon = "https://github.com/Dreams-Office/LimbusCompanySpanishTranslationTeam/raw/main/Localize/Readme/DonQui_Button_Hovered.png"
+format = "auto"
+fonts = []
+
 [hant-LTM]
 repo = "LimbusTraditionalMandarin/storyline"
 name = "Limbus Traditional Mandarin"
