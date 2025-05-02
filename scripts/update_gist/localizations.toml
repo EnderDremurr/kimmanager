@@ -153,3 +153,12 @@ name = "Context/BebasNeue-Regular.ttf"
 url = "https://github.com/2tsunami5/Team-PATO_LimbusCompanyBrasil/raw/refs/heads/LCBPATO/team_resources/font/BebasNeue-Regular.ttf"
 hash = "b2b293064f557c41411aac04d6f6710d"
 name = "Title/BebasNeue-Regular.ttf"
+
+[th-stlinx]
+repo = "stlinx/LocalizeLimbusTH"
+name = "LimbusThai by stlinx"
+authors = ["stlinx", "JoshWaltz49"]
+flag = "TH"
+icon = "https://raw.githubusercontent.com/stlinx/Limbus-loader/main/icon.jpg"
+format = "auto"
+fonts = []

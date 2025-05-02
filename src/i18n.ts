@@ -10,6 +10,7 @@ import zh_Hant from "./locales/zh-Hant.json";
 import es_MX from "./locales/es-MX.json";
 import zh_Hans from "./locales/zh-Hans.json";
 import pt_BR from "./locales/pt-BR.json";
+import th_TH from "./locales/th-TH.json";
 
 // Part II: Resource definition
 const resources = {
@@ -18,7 +19,8 @@ const resources = {
   zh_Hant: { translation: zh_Hant },
   es_MX: { translation: es_MX },
   zh_Hans: {translation: zh_Hans},
-  pt_BR: {translation: pt_BR}
+  pt_BR: {translation: pt_BR},
+  th_TH: {translation: th_TH}
 };
 
 // Part III: Language display name
@@ -28,7 +30,8 @@ export const languageNames = {
   zh_Hant: "繁體中文",
   es_MX: "Español",
   zh_Hans: "简体中文",
-  pt_BR: "Português"
+  pt_BR: "Português",
+  th_TH: "ภาษาไทย"
 } as const;
 
 const languageDetector: LanguageDetectorAsyncModule = {
@@ -57,6 +60,7 @@ i18n
       "es-*": ["es_MX", "en"],
       "pt-BR": ["pt_BR", "en"],
       "pt-*": ["pt_BR", "en"],
+      "th-TH": ["th_TH", "en"],
       default: ["en"],
     },
     resources,

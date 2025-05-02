@@ -1,0 +1,142 @@
+{
+  "title": "วุ้นแปลภาษาลิมบัส",
+  "home": {
+    "play": "อัพเดต & เริ่มเกม",
+    "title": "วุ้นแปลภาษาลิมบัส",
+    "console": "คอนโซล",
+    "updateAvailable": "ตรวจพบอัพเดต!",
+    "noLocalizationsInstalled": "ยังไม่มีไฟล์แปลถูกติดตั้งในขณะนี้",
+    "add": "ติดดั้งไฟล์แปล"
+  },
+  "settings": {
+    "interfaceLanguage": "ภาษา",
+    "source": "เว็บ",
+    "title": "การตั้งค่า",
+    "gameDirectory": "ตำแหน่งติดตั้งเกม",
+    "gameDirectoryDefault": "[กำลังใช้ตำแหน่งไฟล์พื้นฐาน]"
+  },
+  "localization": {
+    "authors": "ผู้สร้าง",
+    "select": "เลือกภาษาที่ต้องการ",
+    "notFound": "ไม่พบไฟล์แปล",
+    "uninstall": "ถอนการติดตั้ง",
+    "repair": "ซ่อมไฟล์",
+    "update": "อัพเดด",
+    "add": "ติดตั้ง",
+    "installed": "ติดตั้งเรียบร้อยสำเร็จ {{localization}} ({{version}})",
+    "uninstalled": "ถอนการติดตั้งสำเร็จ {{localization}}",
+    "repaired": "ซ่อมไฟล์สำเร็จ {{localization}}"
+  },
+  "localizations": {
+    "loading": "กำลังโหลดไฟล์แปล",
+    "error": "ดึงไฟล์แปลล้มเหลว!",
+    "tryAgain": "ลองอีกครั้ง",
+    "changeSource": "เปลี่ยนเว็บ"
+  },
+  "error": {
+    "install": "ติดตั้ง {{localization}} ล้มเหลว",
+    "setGameDirectory": "ตั้งค่าตำแหน่งไฟล์เกมล้มเหลว",
+    "somethingWentWrong": "มีอะไรก็ไม่รู้ผิดพลาด!",
+    "updateAndPlay": "Update failed!",
+    "uninstall": "ถอนการติดตั้งล้มเหลว {{localization}}",
+    "repair": "ซ่อมไฟล์ล้มเหลว {{localization}}"
+  },
+  "log": {
+    "started": "กำลังเช็คว่ามีอัพเดตหรือไม่...",
+    "unknownLocalization": "ตรวจพบไฟล์แปลไม่ทราบชื่อ '{{localization}}'",
+    "upToDate": "ไฟล์แปลของ '{{localization}}' เป็นเวอร์ชั่นล่าสุดแล้ว",
+    "updating": "กำลังอัพเดตไฟล์แปล '{{localization}}'",
+    "updateFinished": "ไฟล์แปลอัพเดตเรียบร้อย '{{localization}}'",
+    "startingGame": "กำลังเริ่มเกม",
+    "finished": "เย้ เริ่มเกมเรียบร้อย",
+    "readChangeLog": "อ่านบันทึกอัปเดต"
+  },
+  "about": {
+    "title": "About",
+    "credits": "เครดิต",
+    "developers": "ผู้พัฒนาแอพ",
+    "translators": "ผู้จัดการแปลภาษา",
+    "links": "ลิ้งเพิ่มเติม",
+    "source": "Source code",
+    "issues": "Support",
+    "developer": "ผู้พัฒนาแอพ",
+    "translator": "ผู้จัดการแปลภาษา",
+    "glupo": "▸ Lobotomy 2"
+  },
+  "glupo": {
+    "loading": "โหลดอยู่",
+    "title": "Lobotomy 2",
+    "balance": "PE",
+
+    "shop": {
+      "button": "ัจัดการผลการวิจัย",
+      "title": "ผลการวิจัย",
+      "reset": "Activate TT2 Protocol",
+
+      "section": {
+        "stats": "Stats",
+        "risk": "ระดับความอันตราย",
+        "weapons": "อาวุธ",
+        "armor": "เกราะ",
+        "reset": "TT2 โปรโตคอล"
+      },
+
+      "stats": {
+        "fortitude": "ความอดทน",
+        "fortitudeDescription": "เลเวล: {{base}} (total: {{total}})\nPE ต่อฮิต: {{min}} - {{max}}",
+
+        "prudence": "ความรอบคอบ",
+        "prudenceDescription": "เลเวล: {{base}} (total: {{total}})\nSP สูงสุด: {{max}}\nฟื้นฟู SP: {{regeneration}}ms\nแพนิคคูลดาวน์: {{panicRestore}}ms",
+
+        "temperance": "ความยับยั้งชั่งใจ",
+        "temperanceDescription": "Level: {{base}} (total: {{total}})\nโอกาสคริติคอล: {{criticalChance}}\nดาเมจคริติคอล: {{criticalMultiplier}}",
+
+        "justice": "ความเป็นธรรม",
+        "justiceDescription": "Level: {{base}} (total: {{total}})\nความเร็ว: {{speedBonus}}%\nคูลดาวน์การโจมตี: {{cooldown}}ms\nคูลดาวน์สกิลอาวุธn: {{weaponCooldown}}ms"
+      }
+    },
+
+    "weapons": {
+      "penitence": "Penitence",
+      "penitenceDescription": "ฮีล 5 SP เมื่อโจมตีติดคริติคอล",
+
+      "redEyes": "Red Eyes",
+      "redEyesDescription": "+4 ความอดทน;\nเสกแมงมุมจำนวน 3 ตัว ที่จะ +1 ความยับยั้งชั่งใจ",
+
+      "harvest": "Harvest",
+      "harvestDescription": "+2 ความรอบคอบ;\nให้โมนัส PE ต่อฮิต เมื่อค่าความรอบคอบต่ำกว่า 5;\nโบนัสมากขึ้นถ้าความรอบคอบเท่ากับ 0",
+
+      "heaven": "Heaven",
+      "heavenDescription": "มอบโบนัส PE เมื่อโจมตีเป็นแนวตั้ง",
+
+      "goldRush": "Gold Rush",
+      "goldRushDescription": "+4 ความอดทน;\n-2 ความยับยั้งชั่งใจ;\nโจมตีเร็วเป็นอย่างมาก",
+
+      "smile": "Smile",
+      "smileDescription": "+5 ความอดทน;\nจะแข็งแกร่งขึ้นเมื่อ SP น้อยกว่าครึ่งนึง",
+
+      "twilight": "Twilight",
+      "twilightDescription": "+5 ความอดทน;\n+5 ความรอบคอบ;\n+5 ความยับยั้งชั่งใจ;\n+5 ความเป็นธรรม;\nทุกครั้งที่โจมตีติดคริติคอล ได้รับ +1 ความรอบคอบ และ +1 ความเป็นธรรม เป็น 2.5 วินาที"
+    },
+
+    "armor": {
+      "penitence": "Penitence",
+      "penitenceDescription": "+3 ความอดทน;\n+1 ความเป็นธรรม;\nฟื้นฟู 20 SP ทันทีเมื่อแพนิค",
+
+      "redEyes": "Red Eyes",
+      "redEyesDescription": "+3 ความอดทน;\n+1 ความรอบคอบ;\n+4 ความยับยั้งชั่งใจ.",
+
+      "harvest": "Harvest",
+      "harvestDescription": "+5 ความอดทน;\n+5 ความยับยั้งชั่งใจ;\n-999 ความรอบคอบ.",
+
+      "heaven": "Heaven",
+      "heavenDescription": "+4 ความอดทน;\n+5 ความยับยั้งชั่งใจ;\n+6 ความยับยั้งชั่งใจ;\n+3 ความเป็นธรรม.",
+
+      "smile": "Smile",
+      "smileDescription": "+6 ความอดทน;\n+2 ความยับยั้งชั่งใจ;\n+2 ความยับยั้งชั่งใจ;\n+2 ความเป็นธรรม;\n5 วินาทีหลังจากแพนิค ได้รับ +5 ความอดทน, +5 ความยับยั้งชั่งใจ และ +5 ความเป็นธรรม",
+
+      "twilight": "Twilight",
+      "twilightDescription": "+10 ความอดทน;\n+10 ความยับยั้งชั่งใจ;\n+10 ความยับยั้งชั่งใจ;\n+10 ความเป็นธรรม;\n50% chance to immediately recover from panic."
+    }
+  }
+}
