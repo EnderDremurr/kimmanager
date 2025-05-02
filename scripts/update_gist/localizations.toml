@@ -117,3 +117,21 @@ name = "Context/ContextFont.ttf"
 url = "https://github.com/LimbusTraditionalMandarin/font/releases/download/1744630853/SarasaGothicTC-Bold.ttf"
 hash = "44563efaea921914d58e42bac4495881"
 name = "Title/TitleFont.ttf"
+
+[zh-CN]
+repo = "LocalizeLimbusCompany/LocalizeLimbusCompany"
+name = "Localize Limbus Company"
+authors = ["Limbus Localize Company"]
+flag = "CN"
+icon = "https://cdn.zeroasso.top/img/logo.png"
+format = "auto"
+
+[[zh-CN.fonts]]
+url = "https://raw.githubusercontent.com/LocalizeLimbusCompany/LocalizeLimbusCompany/refs/heads/main/Fonts/ChineseFont.ttf"
+hash = "b1af87d9b8a3975e58b9a25a0c04f7b4"
+name = "Context/ChineseFont.ttf"
+
+[[zh-CN.fonts]]
+url = "https://raw.githubusercontent.com/LocalizeLimbusCompany/LocalizeLimbusCompany/refs/heads/main/Fonts/ChineseFont.ttf"
+hash = "b1af87d9b8a3975e58b9a25a0c04f7b4"
+name = "Title/ChineseFont.ttf"
