@@ -9,7 +9,7 @@
     "add": "增加语言包"
   },
   "settings": {
-    "interfaceLanguage": "介面語言",
+    "interfaceLanguage": "界面语言",
     "source": "网络源",
     "title": "设置",
     "gameDirectory": "边狱公司游戏路径",
