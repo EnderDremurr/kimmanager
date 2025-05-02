@@ -37,6 +37,11 @@
   @apply text-base font-bold;
 }
 
+.description h3,
+.description h4 {
+  @apply text-base font-semibold;
+}
+
 .description ul {
   @apply list-disc list-inside;
 }
@@ -56,3 +61,13 @@
 .description p {
   @apply mb-2;
 }
+
+.description code {
+  @apply bg-black/25 px-1 py-0.5 rounded-sm;
+}
+
+.description pre {
+  @apply bg-black/25 px-2 py-1 rounded-sm;
+}
+
+
