@@ -8,6 +8,7 @@ import en from "./locales/en.json";
 import ru_RU from "./locales/ru-RU.json";
 import zh_Hant from "./locales/zh-Hant.json";
 import es_MX from "./locales/es-MX.json";
+import zh_Hans from "./locales/zh-Hans.json";
 
 // Part II: Resource definition
 const resources = {
@@ -15,6 +16,7 @@ const resources = {
   ru_RU: { translation: ru_RU },
   zh_Hant: { translation: zh_Hant },
   es_MX: { translation: es_MX },
+  zh_Hans: {translation: zh_Hans}
 };
 
 // Part III: Language display name
@@ -23,6 +25,7 @@ export const languageNames = {
   ru_RU: "Русский",
   zh_Hant: "繁體中文",
   es_MX: "Español",
+  zh_Hans: "简体中文"
 } as const;
 
 const languageDetector: LanguageDetectorAsyncModule = {
@@ -42,6 +45,7 @@ i18n
   .use(languageDetector)
   .init({
     fallbackLng: {
+      "zh-CN": ["zh_Hans", "en"],
       "zh-TW": ["zh_Hant", "en"],
       "zh-HK": ["zh_Hant", "en"],
       "ru-RU": ["ru_RU", "en"],

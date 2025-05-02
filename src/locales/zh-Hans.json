@@ -1,0 +1,142 @@
+{
+  "title": "边狱公司翻译管理器",
+  "home": {
+    "play": "更新 & 启动",
+    "title": "边狱公司翻译管理器",
+    "console": "控制台",
+    "updateAvailable": "存在更新！",
+    "noLocalizationsInstalled": "没有任何语言包被安装",
+    "add": "增加语言包"
+  },
+  "settings": {
+    "interfaceLanguage": "界面语言",
+    "source": "网络源",
+    "title": "设置",
+    "gameDirectory": "边狱公司游戏路径",
+    "gameDirectoryDefault": "[使用默认值]"
+  },
+  "localization": {
+    "authors": "作者",
+    "select": "选择语言包",
+    "notFound": "未找到语言包",
+    "uninstall": "卸载",
+    "repair": "修复",
+    "update": "更新",
+    "add": "增加",
+    "installed": "已安装 {{localization}}（{{version}}）",
+    "uninstalled": "已卸载 {{localization}}",
+    "repaired": "已修复 {{localization}}"
+  },
+  "localizations": {
+    "loading": "正在载入语言包",
+    "error": "获取语言包失败！",
+    "tryAgain": "重试",
+    "changeSource": "更改网络源"
+  },
+  "error": {
+    "install": "安装 {{localization}} 失败",
+    "setGameDirectory": "设置游戏目录失败",
+    "somethingWentWrong": "有些东西出问题了！",
+    "updateAndPlay": "更新失败！",
+    "uninstall": "卸载 {{localization}} 失败",
+    "repair": "修复 {{localization}} 失败"
+  },
+  "log": {
+    "started": "正在检查更新……",
+    "unknownLocalization": "发现未知语言包： '{{localization}}'",
+    "upToDate": "语言包 '{{localization}}' 已经为最新版本",
+    "updating": "正在更新语言包 '{{localization}}'",
+    "updateFinished": "语言包 '{{localization}}' 已更新完成",
+    "startingGame": "正在启动游戏",
+    "finished": "游戏已启动",
+    "readChangeLog": "查看更新日志"
+  },
+  "about": {
+    "title": "关于",
+    "credits": "制作名单",
+    "developers": "开发人员",
+    "translators": "翻译人员",
+    "links": "有用的东西",
+    "source": "源代码",
+    "issues": "获取支持",
+    "developer": "开发者",
+    "translator": "翻译者",
+    "glupo": "▸ 点击进入《脑叶公司2》"
+  },
+  "glupo": {
+    "loading": "加载中",
+    "title": "《脑叶公司2》",
+    "balance": "脑啡肽",
+
+    "shop": {
+      "button": "展示研究日志",
+      "title": "研究日志",
+      "reset": "通过TT2协议重置",
+
+      "section": {
+        "stats": "属性",
+        "risk": "异想体等级",
+        "weapons": "装备",
+        "armor": "护甲",
+        "reset": "TT2协议重置"
+      },
+
+      "stats": {
+        "fortitude": "勇气",
+        "fortitudeDescription": "等级： {{base}} (共： {{total}})\n每次攻击获取脑啡肽： {{min}} - {{max}}",
+
+        "prudence": "谨慎",
+        "prudenceDescription": "等级： {{base}} (共： {{total}})\n最高精神值: {{max}}\n精神值恢复： {{regeneration}}ms\n恐慌恢复耗时： {{panicRestore}}ms",
+
+        "temperance": "自律",
+        "temperanceDescription": "等级： {{base}} (共： {{total}})\n暴击概率： {{criticalChance}}\n暴击倍率： {{criticalMultiplier}}",
+
+        "justice": "正义",
+        "justiceDescription": "等级： {{base}} (共： {{total}})\n速度加成： {{speedBonus}}%\n打击冷却： {{cooldown}}ms\n武器冷却： {{weaponCooldown}}ms"
+      }
+    },
+
+    "weapons": {
+      "penitence": "忏悔",
+      "penitenceDescription": "暴击时恢复5点精神值。",
+
+      "redEyes": "赤瞳",
+      "redEyesDescription": "勇气+4；\n随机产生最多3只临时蜘蛛，每只蜘蛛使自律+1。",
+
+      "harvest": "猎头长耙",
+      "harvestDescription": "谨慎+2;\n如果谨慎低于5，每次攻击可获得额外脑啡肽。\n如果谨慎等于0，加成进一步提升。",
+
+      "heaven": "穿刺极乐",
+      "heavenDescription": "暴击时获得额外脑啡肽。",
+
+      "goldRush": "闪金冲锋",
+      "goldRushDescription": "勇气+4；\n自律-2；\n极大增加攻击速度。",
+
+      "smile": "笑魇",
+      "smileDescription": "勇气+5；\n若精神值低于一半，则变得更强大。",
+
+      "twilight": "薄暝",
+      "twilightDescription": "勇气+5；\n谨慎+5；\n自律+5；\n正义+5；\n每次暴击时，使自律与正义在2.5s内+1。"
+    },
+
+    "armor": {
+      "penitence": "忏悔",
+      "penitenceDescription": "勇气+3；\n正义+1；\n恐慌开始时，立刻恢复20点精神值。",
+
+      "redEyes": "赤瞳",
+      "redEyesDescription": "勇气+3；\n谨慎+1；\n自律+4。",
+
+      "harvest": "Harvest",
+      "harvestDescription": "勇气+5；\n自律+5；\n谨慎-999。",
+
+      "heaven": "Heaven",
+      "heavenDescription": "勇气+4；\n谨慎+5；\n自律+6；\n正义+3。",
+
+      "smile": "Smile",
+      "smileDescription": "勇气+6；\n自律+2；\n自律+2；\n正义+2；\n恐慌后的5s内，勇气，自律与正义+5。",
+
+      "twilight": "Twilight",
+      "twilightDescription": "勇气+10；\n谨慎+10；\n自律+10；\n正义+10；\n陷入恐慌时有50%概率直接恢复。"
+    }
+  }
+}
