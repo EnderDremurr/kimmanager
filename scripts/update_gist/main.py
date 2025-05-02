@@ -25,9 +25,12 @@ class Localization(TypedDict):
     localization_asset: str | None = None
 
 
-def get_latest_release(repo: str, localization_asset: str | None = None) -> tuple[str, str, str, int]:
+def get_latest_release(repo: str, localization_asset: str | None = None, token: str | None = None) -> tuple[str, str, str, int]:
     url = f"https://api.github.com/repos/{repo}/releases/latest"
-    response = requests.get(url)
+    headers = {}
+    if token:
+        headers["Authorization"] = f"token {token}"
+    response = requests.get(url, headers=headers)
     response.raise_for_status()
     content = response.json()
     
@@ -37,7 +40,7 @@ def get_latest_release(repo: str, localization_asset: str | None = None) -> tupl
     size = None
     for asset in content["assets"]:
         if asset["name"].lower() == "readme.md":
-            description = requests.get(asset["browser_download_url"]).text
+            description = requests.get(asset["browser_download_url"], headers=headers).text
 
         if not asset["name"].endswith(".zip"):
             continue
@@ -86,7 +89,7 @@ def main() -> int:
     for localization_id, data in localizations.items():
         try:
             localization_asset = data.get("localization_asset")
-            version, description, data_url, size = get_latest_release(data["repo"], localization_asset)
+            version, description, data_url, size = get_latest_release(data["repo"], localization_asset, gist_token)
         except Exception as e:
             logging.error(f"Error getting latest release for {localization_id}: {e}")
             if current_localizations.get(localization_id) is not None:
