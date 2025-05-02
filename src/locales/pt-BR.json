@@ -1,0 +1,142 @@
+{
+  "title": "Gerenciador de Localização do Limbus",
+  "home": {
+    "play": "Atualizar & Jogar",
+    "title": "Gerenciador de Localização do Limbus",
+    "console": "Console",
+    "updateAvailable": "Atualização disponível!",
+    "noLocalizationsInstalled": "Nenhuma localização instalada",
+    "add": "Adicionar localização"
+  },
+  "settings": {
+    "interfaceLanguage": "Interface dos idiomas",
+    "source": "Fonte",
+    "title": "Configurações",
+    "gameDirectory": "Diretório do jogo customizado",
+    "gameDirectoryDefault": "[Usar padrão]"
+  },
+  "localization": {
+    "authors": "Autores",
+    "select": "Selecionar localização",
+    "notFound": "Localização não encontrada",
+    "uninstall": "Desinstalar",
+    "repair": "Reparar",
+    "update": "Atualizar",
+    "add": "Adicionar",
+    "installed": "Instalado {{localization}} ({{version}})",
+    "uninstalled": "Desinstalar {{localization}}",
+    "repaired": "Reinstalar {{localization}}"
+  },
+  "localizations": {
+    "loading": "Carregando localizações",
+    "error": "Falha em obter as localizações!",
+    "tryAgain": "Tente novamente",
+    "changeSource": "Mudar fonte"
+  },
+  "error": {
+    "install": "Falha ao instalar {{localization}}",
+    "setGameDirectory": "Falha em setar o diretório do jogo",
+    "somethingWentWrong": "Alguma coisa deu errado!",
+    "updateAndPlay": "Falha na atualização!",
+    "uninstall": "Falha em desinstalar {{localization}}",
+    "repair": "Falha em reparar {{localization}}"
+  },
+  "log": {
+    "started": "Procurando por atualizações...",
+    "unknownLocalization": "Localização desconhecida encontrada '{{localization}}'",
+    "upToDate": "A localização '{{localization}}' está atualizada",
+    "updating": "Atualizando localização '{{localization}}'",
+    "updateFinished": "Localização '{{localization}}' terminou de atualizar",
+    "startingGame": "Abrindo jogo",
+    "finished": "Jogo aberto",
+    "readChangeLog": "Leia as notas de atualização"
+  },
+  "about": {
+    "title": "Sobre",
+    "credits": "Créditos",
+    "developers": "Desenvolvedores",
+    "translators": "Tradutores",
+    "links": "Links úteis",
+    "source": "Código fonte",
+    "issues": "Suporte",
+    "developer": "Desenvolvedor",
+    "translator": "Tradutor",
+    "glupo": "▸ Lobotomy 2"
+  },
+  "glupo": {
+    "loading": "Carregando",
+    "title": "Lobotomy 2",
+    "balance": "EP",
+
+    "shop": {
+      "button": "Mostrar Registro de Pesquisa",
+      "title": "Registro de Pesquisa",
+      "reset": "Ativar Protocolo TT2",
+
+      "section": {
+        "stats": "Status",
+        "risk": "Nível de Risco",
+        "weapons": "Armas",
+        "armor": "Armadura",
+        "reset": "Protocolo TT2"
+      },
+
+      "stats": {
+        "fortitude": "Fortitude",
+        "fortitudeDescription": "Nível: {{base}} (total: {{total}})\nCaixas EP por golpe: {{min}} - {{max}}",
+
+        "prudence": "Prudência",
+        "prudenceDescription": "Nível: {{base}} (total: {{total}})\nPS Máximo: {{max}}\nRegeneração de PS: {{regeneration}}ms\nTempo de Recarga de Pânico: {{panicRestore}}ms",
+
+        "temperance": "Temperança",
+        "temperanceDescription": "Nível: {{base}} (total: {{total}})\nChance de Crítico: {{criticalChance}}\nMultiplicador de Crítico: {{criticalMultiplier}}",
+
+        "justice": "Justiça",
+        "justiceDescription": "Nível: {{base}} (total: {{total}})\nBônus de Velocidade: {{speedBonus}}%\nTempo de Recarga do Golpe: {{cooldown}}ms\nTempo de Recarga da Arma: {{weaponCooldown}}ms"
+      }
+    },
+
+    "weapons": {
+      "penitence": "Penitência",
+      "penitenceDescription": "Cura 5 de PS em um golpe crítico",
+
+      "redEyes": "Olhos Vermelhos",
+      "redEyesDescription": "+4 fortitude;\nAleatoriamente nascem até 3 aranhas temporárias que dão +1 de temperança.",
+
+      "harvest": "Colheita",
+      "harvestDescription": "+2 prudência;\nCada golpe gera EP bônus se estiver com menos 5 de prudência;\nBônus maior se prudência igualar a 0.",
+
+      "heaven": "Paraíso",
+      "heavenDescription": "Bônus EP por golpes na vertical.",
+
+      "goldRush": "Febre do Ouro",
+      "goldRushDescription": "+4 fortitude;\n-2 temperança;\nVelocidade de ataque extremamente rápida.",
+
+      "smile": "Sorriso",
+      "smileDescription": "+5 fortitude;\nFica mais forte se PS estiver abaixo da metade.",
+
+      "twilight": "Crepúsculo",
+      "twilightDescription": "+5 fortitude;\n+5 prudência;\n+5 temperança;\n+5 justiça;\nA cada golpe crítico, ganha +1 temperança e +1 justiça por 2.5 segundos."
+    },
+
+    "armor": {
+      "penitence": "Penitência",
+      "penitenceDescription": "+3 fortitude;\n+1 justiça;\nAssim que entrar em pânico, imediatamente restaura 20 PS.",
+
+      "redEyes": "Olhos Vermelhos",
+      "redEyesDescription": "+3 fortitude;\n+1 prudência;\n+4 temperança.",
+
+      "harvest": "Colheita",
+      "harvestDescription": "+5 fortitude;\n+5 temperança;\n-999 prudência.",
+
+      "heaven": "Paraíso",
+      "heavenDescription": "+4 fortitude;\n+5 prudência;\n+6 temperança;\n+3 justiça.",
+
+      "smile": "Sorriso",
+      "smileDescription": "+6 fortitude;\n+2 prudência;\n+2 temperança;\n+2 justiça;\nApós recuperar do pânico nos próximos 5 segundos, ganha +5 fortitude, +5 temperança e +5 justiça.",
+
+      "twilight": "Crepúsculo",
+      "twilightDescription": "+10 fortitude;\n+10 prudência;\n+10 temperança;\n+10 justiça;\n50% de chance de imediatamente se recuperar do pânico."
+    }
+  }
+}

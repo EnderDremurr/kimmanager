@@ -5,6 +5,7 @@ import json
 import time
 import schedule
 import logging
+import base64
 
 from pathlib import Path
 from typing import TypedDict, Literal
@@ -25,6 +26,22 @@ class Localization(TypedDict):
     localization_asset: str | None = None
 
 
+def get_description(repo: str, release_notes: str, token: str | None = None) -> str:
+    readme_url = f"https://api.github.com/repos/{repo}/contents/README.md"
+    headers = {}
+    if token:
+        headers["Authorization"] = f"token {token}"
+            
+    response = requests.get(readme_url, headers=headers)
+
+    if response.status_code != 200:
+        logging.warning(f"Could not fetch README for {repo}: {response.status_code} {response.text}")
+        return release_notes
+
+    readme_content = base64.b64decode(response.json()["content"]).decode("utf-8")
+    return f"{release_notes}\n\n---\n\n{readme_content}"
+
+
 def get_latest_release(repo: str, localization_asset: str | None = None, token: str | None = None) -> tuple[str, str, str, int]:
     url = f"https://api.github.com/repos/{repo}/releases/latest"
     headers = {}
@@ -35,7 +52,7 @@ def get_latest_release(repo: str, localization_asset: str | None = None, token: 
     content = response.json()
     
     version = content["tag_name"]
-    description = content["body"]
+    description = None
     data_url = None
     size = None
     for asset in content["assets"]:
@@ -55,6 +72,9 @@ def get_latest_release(repo: str, localization_asset: str | None = None, token: 
 
     if data_url is None:
         raise Exception(f"No data URL found for {repo}")
+
+    if description is None:
+        description = get_description(repo, content["body"], token)
 
     return version, description, data_url, size
 

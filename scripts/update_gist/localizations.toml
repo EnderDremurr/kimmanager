@@ -135,3 +135,21 @@ name = "Context/ChineseFont.ttf"
 url = "https://raw.githubusercontent.com/LocalizeLimbusCompany/LocalizeLimbusCompany/refs/heads/main/Fonts/ChineseFont.ttf"
 hash = "b1af87d9b8a3975e58b9a25a0c04f7b4"
 name = "Title/ChineseFont.ttf"
+
+[ptbr-TeamPato]
+repo = "2tsunami5/Team-PATO_LimbusCompanyBrasil"
+name = "LCBPATO"
+authors = ["Team PATO"]
+flag = "BR"
+icon = "https://github.com/2tsunami5/Team-PATO_LimbusCompanyBrasil/blob/LCBPATO/team_resources/img/434949545-0aa4ce11-2885-4328-8c0d-beeb0fa13169.png"
+format = "auto"
+
+[[ptbr-TeamPato.fonts]]
+url = "https://github.com/2tsunami5/Team-PATO_LimbusCompanyBrasil/raw/refs/heads/LCBPATO/team_resources/font/BebasNeue-Regular.ttf"
+hash = "b2b293064f557c41411aac04d6f6710d"
+name = "Context/BebasNeue-Regular.ttf"
+
+[[ptbr-TeamPato.fonts]]
+url = "https://github.com/2tsunami5/Team-PATO_LimbusCompanyBrasil/raw/refs/heads/LCBPATO/team_resources/font/BebasNeue-Regular.ttf"
+hash = "b2b293064f557c41411aac04d6f6710d"
+name = "Title/BebasNeue-Regular.ttf"

@@ -23,6 +23,9 @@ function Page() {
         <ul className={styles.list}>
           <li>ZengXiaoPi - {t("about.translator")} (HANS)</li>
         </ul>
+        <ul className={styles.list}>
+          <li>2tsunami5 - {t("about.translator")} (PT-BR)</li>
+        </ul>
       </div>
       <div className={styles.section}>
         <h2 className="text-lg">{t("about.links")}</h2>
