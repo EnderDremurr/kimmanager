@@ -21,6 +21,7 @@ A simple tool for managing Limbus Company localizations
 - [**Divine Company**](https://github.com/Divine-Company/DivineCompany_RussianTranslationDepartment) (RU)
 - [**Limbus Traditional Mandarin**](https://github.com/LimbusTraditionalMandarin) (HANT)
 - [**Dreams Office**](https://github.com/Dreams-Office/LimbusCompanySpanishTranslationTeam) (ES)
+- [**Localize Limbus Company**](https://github.com/LocalizeLimbusCompany/LocalizeLimbusCompany) (HANS)
 
 # Installation
 1. Download the latest version for your operation system from [releases](https://github.com/kimght/LimbusLocalizationManager/releases)

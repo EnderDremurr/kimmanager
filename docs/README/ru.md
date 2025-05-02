@@ -21,6 +21,7 @@
 - [**Divine Company**](https://github.com/Divine-Company/DivineCompany_RussianTranslationDepartment) (RU)
 - [**Limbus Traditional Mandarin**](https://github.com/LimbusTraditionalMandarin) (HANT)
 - [**Dreams Office**](https://github.com/Dreams-Office/LimbusCompanySpanishTranslationTeam) (ES)
+- [**Localize Limbus Company**](https://github.com/LocalizeLimbusCompany/LocalizeLimbusCompany) (HANS)
 
 # Установка
 1. Скачай последнюю версию для своей операционной системы в [релизах](https://github.com/kimght/LimbusLocalizationManager/releases)
