@@ -96,6 +96,7 @@ def main() -> int:
                 version = current_localizations[localization_id]["version"]
                 description = current_localizations[localization_id]["description"]
                 data_url = current_localizations[localization_id]["url"]
+                size = current_localizations[localization_id]["size"]
             else:
                 continue
 
@@ -105,7 +106,7 @@ def main() -> int:
             "name": data["name"],
             "flag": data["flag"],
             "icon": data["icon"],
-            "description": description,
+            "description": description.replace("\r\n", "\n\n"),
             "authors": data["authors"],
             "url": data_url,
             "size": size,
