@@ -74,8 +74,9 @@ def get_latest_release(repo: str, localization_asset: str | None = None, token: 
         raise Exception(f"No data URL found for {repo}")
 
     if description is None:
-        description = get_description(repo, content["body"], token)
-
+        # description = get_description(repo, content["body"], token)
+        description = content["body"]
+        
     return version, description, data_url, size
 
 
