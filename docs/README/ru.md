@@ -23,6 +23,7 @@
 - [**Dreams Office**](https://github.com/Dreams-Office/LimbusCompanySpanishTranslationTeam) (ES)
 - [**Localize Limbus Company**](https://github.com/LocalizeLimbusCompany/LocalizeLimbusCompany) (HANS)
 - [**Team PATO**](https://github.com/2tsunami5/Team-PATO_LimbusCompanyBrasil) (PT-BR)
+- [**LimbusThai**](https://github.com/stlinx/LocalizeLimbusTH) (TH)
 
 # Установка
 1. Скачай последнюю версию для своей операционной системы в [релизах](https://github.com/kimght/LimbusLocalizationManager/releases)
