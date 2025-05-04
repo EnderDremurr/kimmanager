@@ -69,7 +69,7 @@ class Heaven implements Armor {
   public readonly name = "glupo.armor.heaven";
   public readonly image = "armor.heaven";
   public readonly description = "glupo.armor.heavenDescription";
-  public readonly cost = 5000;
+  public readonly cost = 10000;
 
   public readonly stats: Stats = {
     fortitude: 4,

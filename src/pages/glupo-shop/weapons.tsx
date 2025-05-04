@@ -4,6 +4,7 @@ import styles from "./weapons.module.css";
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
 import { WeaponId } from "@/stores/glupo/weapon";
+import { formatEnkephalin } from "@/utils";
 
 function Weapons() {
   const { glupo } = rootStore;
@@ -31,7 +32,7 @@ function Weapons() {
             {weapon.isSelected && (
               <Check className="w-6 h-6 shrink-0 text-limbus-500" />
             )}
-            {!weapon.isBought && <p>{weapon.cost}</p>}
+            {!weapon.isBought && <p>{formatEnkephalin(weapon.cost)}</p>}
           </div>
         </button>
       ))}

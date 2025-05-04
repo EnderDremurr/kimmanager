@@ -2,6 +2,7 @@ import { rootStore } from "@/stores";
 import styles from "./stats.module.css";
 import { observer } from "mobx-react-lite";
 import { useTranslation } from "react-i18next";
+import { formatEnkephalin } from "@/utils";
 
 const formatNumber = (value: number) => {
   return value.toFixed(2).replace(/\.?0+$/, "");
@@ -33,7 +34,7 @@ function Stats() {
           }
         >
           <p>{t("glupo.shop.stats.fortitude")}</p>
-          <span>{upgradeCost.fortitude ?? "max"}</span>
+          <span>{formatEnkephalin(upgradeCost.fortitude, "max")}</span>
         </button>
         <div className={styles.description}>
           {t("glupo.shop.stats.fortitudeDescription", {
@@ -57,7 +58,7 @@ function Stats() {
           }
         >
           <p>{t("glupo.shop.stats.prudence")}</p>
-          <span>{upgradeCost.prudence ?? "max"}</span>
+          <span>{formatEnkephalin(upgradeCost.prudence, "max")}</span>
         </button>
         <div className={styles.description}>
           {t("glupo.shop.stats.prudenceDescription", {
@@ -82,7 +83,7 @@ function Stats() {
           }
         >
           <p>{t("glupo.shop.stats.temperance")}</p>
-          <span>{upgradeCost.temperance ?? "max"}</span>
+          <span>{formatEnkephalin(upgradeCost.temperance, "max")}</span>
         </button>
         <div className={styles.description}>
           {t("glupo.shop.stats.temperanceDescription", {
@@ -106,7 +107,7 @@ function Stats() {
           }
         >
           <p>{t("glupo.shop.stats.justice")}</p>
-          <span>{upgradeCost.justice ?? "max"}</span>
+          <span>{formatEnkephalin(upgradeCost.justice, "max")}</span>
         </button>
         <div className={styles.description}>
           {t("glupo.shop.stats.justiceDescription", {

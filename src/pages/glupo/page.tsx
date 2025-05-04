@@ -7,7 +7,7 @@ import { RiskLevel } from "@/stores/glupo/types";
 
 import Enkephalin from "@/assets/icons/glupo/ui/enkephalin.webp";
 
-import { cn } from "@/utils";
+import { cn, formatEnkephalin } from "@/utils";
 import { NavLink } from "react-router";
 
 import Zayin from "@/assets/icons/glupo/ui/risk-zayin.webp";
@@ -118,7 +118,7 @@ function Page() {
       <div className={styles.header}>
         <h1>{t("glupo.title")}</h1>
         <div className={cn(styles.balance, glupo.isFullBalance && styles.full)}>
-          <p>{glupo.balance}</p>
+          <p>{formatEnkephalin(glupo.balance)}</p>
           <img src={Enkephalin} alt="Enkephalin" width={48} height={24} />
         </div>
       </div>

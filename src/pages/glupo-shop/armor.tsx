@@ -4,6 +4,7 @@ import styles from "./armor.module.css";
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
 import { ArmorId } from "@/stores/glupo/armor";
+import { formatEnkephalin } from "@/utils";
 
 function Armor() {
   const { glupo } = rootStore;
@@ -31,7 +32,7 @@ function Armor() {
             {armor.isSelected && (
               <Check className="w-6 h-6 shrink-0 text-limbus-500" />
             )}
-            {!armor.isBought && <p>{armor.cost}</p>}
+            {!armor.isBought && <p>{formatEnkephalin(armor.cost)}</p>}
           </div>
         </button>
       ))}

@@ -10,6 +10,7 @@ import Waw from "@/assets/icons/glupo/ui/risk-waw.webp";
 import Aleph from "@/assets/icons/glupo/ui/risk-aleph.webp";
 import Enkephalin from "@/assets/icons/glupo/ui/enkephalin.webp";
 import { ArrowRight } from "lucide-react";
+import { formatEnkephalin } from "@/utils";
 
 const RiskLevelIcons = {
   [RiskLevel.Zayin]: Zayin,
@@ -58,7 +59,7 @@ function Risk() {
         </>
       )}
 
-      <span className={styles.cost}>{glupo.riskUpgradeCost ?? "max"}</span>
+      <span className={styles.cost}>{formatEnkephalin(glupo.riskUpgradeCost, "max")}</span>
     </button>
   );
 }

@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import { useTranslation } from "react-i18next";
 
 import Enkephalin from "@/assets/icons/glupo/ui/enkephalin.webp";
-import { cn } from "@/utils";
+import { cn, formatEnkephalin } from "@/utils";
 import { NavLink } from "react-router";
 import { ChevronsLeft } from "lucide-react";
 import Stats from "./stats";
@@ -35,8 +35,8 @@ function Page() {
 
         <div className={cn(styles.balance, glupo.isFullBalance && styles.full)}>
           <p>
-            {glupo.balance}/
-            {isFinite(glupo.maxBalance) ? glupo.maxBalance : "∞"}
+            {formatEnkephalin(glupo.balance)}/
+            {formatEnkephalin(glupo.maxBalance, "∞")}
           </p>
           <img
             src={Enkephalin}
