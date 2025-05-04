@@ -1,0 +1,142 @@
+{
+  "title": "Manager Localizzazione Limbus",
+  "home": {
+    "play": "Aggiorna e Gioca",
+    "title": "Manager Localizzazione Limbus",
+    "console": "Console",
+    "updateAvailable": "Aggiornamento disponibile!",
+    "noLocalizationsInstalled": "Nessuna Localizzazione installata",
+    "add": "Aggiungi localizzatione"
+  },
+  "settings": {
+    "interfaceLanguage": "Lingua interfaccia",
+    "source": "Origine",
+    "title": "Opzioni",
+    "gameDirectory": "Directory gioco personalizzata",
+    "gameDirectoryDefault": "[Usa default]"
+  },
+  "localization": {
+    "authors": "Autori",
+    "select": "Seleziona Localizzazione",
+    "notFound": "Localizzazione non trovata",
+    "uninstall": "Disinstalla",
+    "repair": "Ripara",
+    "update": "Aggiorna",
+    "add": "Aggiungi",
+    "installed": "{{localization}} ({{version}}) Installata",
+    "uninstalled": "{{localization}} Disinstallata",
+    "repaired": "{{localization}} Riinstallata"
+  },
+  "localizations": {
+    "loading": "Caricamento localizzazioni",
+    "error": "Fallito nel trovare localizzazioni!",
+    "tryAgain": "Riprova",
+    "changeSource": "Cambia Origine"
+  },
+  "error": {
+    "install": "Fallito nell'installare {{localization}}",
+    "setGameDirectory": "Fallito nello scegliere la directory di gioco",
+    "somethingWentWrong": "Qualcosa è andato storto!",
+    "updateAndPlay": "Aggiornamento fallito!",
+    "uninstall": "Fallito nel disinstallare {{localization}}",
+    "repair": "Fallito nel riparare {{localization}}"
+  },
+  "log": {
+    "started": "In cerca di aggiornamenti...",
+    "unknownLocalization": "Trovata localizzazione sconosciuta '{{localization}}'",
+    "upToDate": "Localizzazione '{{localization}}' è aggiornata",
+    "updating": "Aggiornamento localizzazione '{{localization}}'",
+    "updateFinished": "Localizzazione '{{localization}}' aggiornata",
+    "startingGame": "Avvio del gioco",
+    "finished": "Gioco avviato",
+    "readChangeLog": "Leggi registro cambi"
+  },
+  "about": {
+    "title": "Su di noi",
+    "credits": "Crediti",
+    "developers": "Sviluppatori",
+    "translators": "Traduttori",
+    "links": "Link utili",
+    "source": "Source code",
+    "issues": "Aiuto",
+    "developer": "Sviluppatore",
+    "translator": "Traduttore",
+    "glupo": "▸ Lobotomy 2"
+  },
+  "glupo": {
+    "loading": "Caricamento",
+    "title": "Lobotomy 2",
+    "balance": "EP",
+
+    "shop": {
+      "button": "Mostra Archivio",
+      "title": "Archivio",
+      "reset": "Activate TT2 Protocol",
+
+      "section": {
+        "stats": "Statistiche",
+        "risk": "Livello di Rischio",
+        "weapons": "Armi",
+        "armor": "Tute",
+        "reset": "TT2 Protocol"
+      },
+
+      "stats": {
+        "fortitude": "Fortezza",
+        "fortitudeDescription": "Livello: {{base}} (totale: {{total}})\nCasse EP per colpo: {{min}} - {{max}}",
+
+        "prudence": "Prudenza",
+        "prudenceDescription": "Livello: {{base}} (totale: {{total}})\nMax PS: {{max}}\nRigenerazione PS: {{regeneration}}ms\nRecupero Panico: {{panicRestore}}ms",
+
+        "temperance": "Temperanza",
+        "temperanceDescription": "Livello: {{base}} (totale: {{total}})\nProbabilità critico: {{criticalChance}}\nMoltiplicatore critico: {{criticalMultiplier}}",
+
+        "justice": "Giustizia",
+        "justiceDescription": "Livello: {{base}} (totale: {{total}})\nBonus velocità: {{speedBonus}}%\nRecupero colpo: {{cooldown}}ms\nRecupero arma: {{weaponCooldown}}ms"
+      }
+    },
+
+    "weapons": {
+      "penitence": "Penitenza",
+      "penitenceDescription": "Cura 5 PS con un critico",
+
+      "redEyes": "Occhi Rossi",
+      "redEyesDescription": "+4 fortezza;\nCrea casualmente 3 ragni temporanei che danno +1 temperanza.",
+
+      "harvest": "Raccolto",
+      "harvestDescription": "+2 prudenza;\nEP bonus per ogni colpo se si ha sotto 5 prudenza;\nBonus maggiore se la prudenza è 0.",
+
+      "heaven": "Paradiso",
+      "heavenDescription": "EP bonus per colpi verticali.",
+
+      "goldRush": "Febbre dell'Oro",
+      "goldRushDescription": "+4 fortezza;\n-2 temperanza;\nVelocità di attacco estremamente alta.",
+
+      "smile": "Sorriso",
+      "smileDescription": "+5 fortezza;\nDiventa più forte se i PS sono sotto metà.",
+
+      "twilight": "Crepuscolo",
+      "twilightDescription": "+5 fortezza;\n+5 prudenza;\n+5 temperanza;\n+5 giustizia;\nCon ogni colpo critico, ottieni +1 temperanza e +1 giustizia per 2.5 secondi."
+    },
+
+    "armor": {
+      "penitence": "Penitenza",
+      "penitenceDescription": "+3 fortezza;\n+1 giustizia;\nRipristina immediatamente 20 PS all'inizio del panico.",
+
+      "redEyes": "Occhi Rossi",
+      "redEyesDescription": "+3 fortezza;\n+1 prudenza;\n+4 temperanza.",
+
+      "harvest": "Raccolto",
+      "harvestDescription": "+5 fortezza;\n+5 temperanza;\n-999 prudenza.",
+
+      "heaven": "Paradiso",
+      "heavenDescription": "+4 fortezza;\n+5 prudenza;\n+6 temperanza;\n+3 giustizia.",
+
+      "smile": "Sorriso",
+      "smileDescription": "+6 fortezza;\n+2 prudenza;\n+2 temperanza;\n+2 giustizia;\nPer 5 secondi dopo il panico, ottieni +5 fortezza, +5 temperanza e +5 giustizia.",
+
+      "twilight": "Crepuscolo",
+      "twilightDescription": "+10 fortezza;\n+10 prudenza;\n+10 temperanza;\n+10 giustizia;\n50% di probabilità di recuperare dal panico."
+    }
+  }
+}

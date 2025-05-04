@@ -29,6 +29,9 @@ function Page() {
         <ul className={styles.list}>
           <li>stlinx - {t("about.translator")} (TH)</li>
         </ul>
+        <ul className={styles.list}>
+          <li>Eremitaviola - {t("about.translator")} (IT)</li>
+        </ul>
       </div>
       <div className={styles.section}>
         <h2 className="text-lg">{t("about.links")}</h2>

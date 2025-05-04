@@ -162,3 +162,22 @@ flag = "TH"
 icon = "https://raw.githubusercontent.com/stlinx/Limbus-loader/main/icon.jpg"
 format = "auto"
 fonts = []
+
+[it-espresso]
+repo = "Laetaria/LocalizeLimbusIT"
+name = "Espresso Office"
+authors = [
+  "flowerssummerr", 
+  "Eremitaviola", 
+  "Ballastedmarco91",
+  "KoilaKarpaKoi", 
+  "GhostyTricker", 
+  "Cimone", 
+  "SirPapera", 
+  "Veldia", 
+  "Dottore"
+]
+flag = "IT"
+icon = "https://raw.githubusercontent.com/Laetaria/UfficioEspresso/main/IMG_0570.png"
+format = "auto"
+fonts = []
