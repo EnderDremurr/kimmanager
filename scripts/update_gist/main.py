@@ -7,6 +7,8 @@ import schedule
 import logging
 import base64
 
+from io import BytesIO
+from PIL import Image
 from pathlib import Path
 from typing import TypedDict, Literal
 from argparse import ArgumentParser
@@ -40,6 +42,27 @@ def get_description(repo: str, release_notes: str, token: str | None = None) -> 
 
     readme_content = base64.b64decode(response.json()["content"]).decode("utf-8")
     return f"{release_notes}\n\n---\n\n{readme_content}"
+
+
+def get_optimized_icon(icon_url: str) -> str:
+    response = requests.get(icon_url)
+
+    script_dir = Path(__file__).parent.absolute()
+
+    if response.status_code != 200:
+        image = Image.open(script_dir / "icon_404.png")
+    else:
+        image = Image.open(BytesIO(response.content))
+
+    image = image.convert("RGBA")
+    image = image.resize((40, 40), Image.Resampling.LANCZOS)
+    
+    buffer = BytesIO()
+    image.save(buffer, format="WebP", quality=95, lossless=False)
+    buffer.seek(0)
+    
+    base64_data = base64.b64encode(buffer.getvalue()).decode('utf-8')
+    return f"data:image/webp;base64,{base64_data}"
 
 
 def get_latest_release(repo: str, localization_asset: str | None = None, token: str | None = None) -> tuple[str, str, str, int]:
@@ -126,7 +149,7 @@ def main() -> int:
             "version": version,
             "name": data["name"],
             "flag": data["flag"],
-            "icon": data["icon"],
+            "icon": get_optimized_icon(data["icon"]),
             "description": description.replace("\r\n", "\n\n"),
             "authors": data["authors"],
             "url": data_url,
