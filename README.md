@@ -24,6 +24,7 @@ A simple tool for managing Limbus Company localizations
 - [**Localize Limbus Company**](https://github.com/LocalizeLimbusCompany/LocalizeLimbusCompany) (HANS)
 - [**Team PATO**](https://github.com/2tsunami5/Team-PATO_LimbusCompanyBrasil) (PT-BR)
 - [**LimbusThai**](https://github.com/stlinx/LocalizeLimbusTH) (TH)
+- [**Espresso Office**](https://github.com/Laetaria/LocalizeLimbusIT) (IT)
 
 # Installation
 1. Download the latest version for your operation system from [releases](https://github.com/kimght/LimbusLocalizationManager/releases)
