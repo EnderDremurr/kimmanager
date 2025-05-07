@@ -157,7 +157,7 @@ name = "Title/BebasNeue-Regular.ttf"
 [th-stlinx]
 repo = "stlinx/LocalizeLimbusTH"
 name = "LimbusThai by stlinx"
-authors = ["stlinx", "JoshWaltz49"]
+authors = ["stlinx", "JoshWaltz49", "Asunokun"]
 flag = "TH"
 icon = "https://raw.githubusercontent.com/stlinx/Limbus-loader/main/icon.jpg"
 format = "auto"
