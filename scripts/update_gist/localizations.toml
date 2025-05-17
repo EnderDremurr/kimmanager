@@ -25,16 +25,6 @@ icon = "https://github.com/kimght/LimbusCompanyRuMTL/raw/main/data/images/logo.p
 format = "new"
 localization_asset = "localize_files.zip"
 
-[[ru-mtl.fonts]]
-url = "https://github.com/kimght/LimbusFonts/releases/download/v1.8.0/merged_font.ttf"
-hash = "b8c47fe4c36a080587b57e5c31fa7fb9"
-name = "Context/ContextFont.ttf"
-
-[[ru-mtl.fonts]]
-url = "https://github.com/kimght/LimbusFonts/releases/download/v1.8.0/merged_font.ttf"
-hash = "b8c47fe4c36a080587b57e5c31fa7fb9"
-name = "Title/TitleFont.ttf"
-
 [ru-Divine]
 repo = "Divine-Company/DivineCompany_RussianTranslationDepartment"
 name = "Divine Company"
