@@ -24,6 +24,7 @@ flag = "RU"
 icon = "https://github.com/kimght/LimbusCompanyRuMTL/raw/main/data/images/logo.png"
 format = "new"
 localization_asset = "localize_files.zip"
+fonts = []
 
 [ru-Divine]
 repo = "Divine-Company/DivineCompany_RussianTranslationDepartment"
