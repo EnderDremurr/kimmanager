@@ -172,3 +172,23 @@ flag = "IT"
 icon = "https://raw.githubusercontent.com/Laetaria/UfficioEspresso/main/IMG_0570.png"
 format = "auto"
 fonts = []
+
+[hant-RHOY]
+repo = "user-unknown-0711/ParatranzUploader"
+name = "Retirement Home Old Yard"
+authors = ["Retirement Home Old Yard"]
+
+flag = "ROC"
+icon = "https://raw.githubusercontent.com/user-unknown-0711/ParatranzUploader/main/resources/icons/RHOY.png"
+format = "new"
+localization_asset = "localize_files.zip"
+
+[[hant-RHOY.fonts]]
+url = "https://github.com/LimbusTraditionalMandarin/font/releases/download/1744630853/SarasaGothicTC-Bold.ttf"
+hash = "44563efaea921914d58e42bac4495881"
+name = "Context/ContextFont.ttf"
+
+[[hant-RHOY.fonts]]
+url = "https://github.com/LimbusTraditionalMandarin/font/releases/download/1744630853/SarasaGothicTC-Bold.ttf"
+hash = "44563efaea921914d58e42bac4495881"
+name = "Title/TitleFont.ttf"
