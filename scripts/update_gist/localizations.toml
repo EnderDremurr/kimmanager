@@ -95,7 +95,7 @@ authors = [
   "ulofsix"
 ]
 
-flag = "LTM.png"
+flag = "HANT.png"
 icon = "https://avatars.githubusercontent.com/u/200600060"
 format = "new"
 
@@ -178,7 +178,7 @@ repo = "user-unknown-0711/ParatranzUploader"
 name = "Retirement Home Old Yard"
 authors = ["Retirement Home Old Yard"]
 
-flag = "LTM.png"
+flag = "HANT.png"
 icon = "https://raw.githubusercontent.com/user-unknown-0711/ParatranzUploader/main/resources/icons/RHOY.png"
 format = "new"
 localization_asset = "localize_files.zip"
