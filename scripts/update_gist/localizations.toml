@@ -145,6 +145,24 @@ url = "https://github.com/2tsunami5/Team-PATO_LimbusCompanyBrasil/raw/refs/heads
 hash = "b2b293064f557c41411aac04d6f6710d"
 name = "Title/BebasNeue-Regular.ttf"
 
+[ptbr-CLT]
+repo = "Eike-Felipe/CLT-District_Limbus-Brasil"
+name = "CLT-LCBR"
+authors = ["CLT District"]
+flag = "BR"
+icon = "https://raw.githubusercontent.com/Eike-Felipe/CLT-District_Limbus-Brasil/main/loc_assets/Icon/CLT_District.png"
+format = "auto"
+
+[[ptbr-CLT.fonts]]
+url = "https://raw.githubusercontent.com/Eike-Felipe/CLT-District_Limbus-Brasil/refs/heads/main/loc_assets/Fonts/Context/ContextFont.otf"
+hash = "46b0c48afd8b0ddc2ed4fcbb2df81d8b"
+name = "Context/ContextFont.otf"
+
+[[ptbr-CLT.fonts]]
+url = "https://raw.githubusercontent.com/Eike-Felipe/CLT-District_Limbus-Brasil/refs/heads/main/loc_assets/Fonts/Title/TitleFont.otf"
+hash = "a4e82e00d0643abcd1ee10faae27dbd2"
+name = "Title/TitleFont.otf"
+
 [th-stlinx]
 repo = "stlinx/LocalizeLimbusTH"
 name = "LimbusThai by stlinx"
