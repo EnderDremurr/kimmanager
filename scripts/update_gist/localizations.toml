@@ -5,16 +5,7 @@ authors = ["Knightey", "Disaer", "Mellison", "Mermera"]
 flag = "RU"
 icon = "https://github.com/Crescent-Corporation/LimbusCompanyBusRUS/raw/LC_branch_ORIGINAL/Localize/Readme/Crescent_Button.png"
 format = "new"
-
-[[ru-CresCorp.fonts]]
-url = "https://github.com/kimght/LimbusFonts/releases/download/v1.8.0/merged_font.ttf"
-hash = "b8c47fe4c36a080587b57e5c31fa7fb9"
-name = "Context/ContextFont.ttf"
-
-[[ru-CresCorp.fonts]]
-url = "https://github.com/kimght/LimbusFonts/releases/download/v1.8.0/merged_font.ttf"
-hash = "b8c47fe4c36a080587b57e5c31fa7fb9"
-name = "Title/TitleFont.ttf"
+fonts = []
 
 [ru-mtl]
 repo = "kimght/LimbusCompanyRuMTL"
