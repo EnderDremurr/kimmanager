@@ -26,6 +26,15 @@ icon = "https://github.com/Divine-Company/DivineCompany_RussianTranslationDepart
 format = "auto"
 fonts = []
 
+[ru-RCR]
+repo = "enqenqenqenqenq/RCR"
+name = "Rainbus Company Rofls"
+authors = ["Rainbus Company Rofls"]
+flag = "RU"
+icon = "https://github.com/enqenqenqenqenq/RCR/raw/main/data/images/logo.png"
+format = "auto"
+fonts = []
+
 [es-DreamsOffice]
 repo = "Dreams-Office/LimbusCompanySpanishTranslationTeam"
 name = "Dreams Office"
