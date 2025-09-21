@@ -178,7 +178,8 @@ def do_update() -> int:
         config = toml.load(f)
 
     current = requests.get(
-        f"https://gist.githubusercontent.com/{GITHUB_GIST_OWNER}/{GITHUB_GIST_ID}/raw/localizations.json"
+        f"https://gist.githubusercontent.com/{GITHUB_GIST_OWNER}/{GITHUB_GIST_ID}/raw/localizations.json",
+        headers=get_github_headers()
     )
 
     current_localizations: dict[str, Localization] = {}
