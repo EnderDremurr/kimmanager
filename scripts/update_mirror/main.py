@@ -1,3 +1,4 @@
+from minio.datatypes import HTTPHeaderDict
 import requests
 import os
 import toml
@@ -6,16 +7,20 @@ import time
 import schedule
 import logging
 import base64
+import minio
 
 from io import BytesIO
 from PIL import Image
 from pathlib import Path
-from typing import TypedDict, Literal
+from typing import TypedDict, Literal, cast, BinaryIO
 from argparse import ArgumentParser
 
-GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
-GITHUB_GIST_ID = os.environ["GITHUB_GIST_ID"]
-GITHUB_GIST_OWNER = os.environ["GITHUB_GIST_OWNER"]
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+MINIO_ENDPOINT = os.environ["MINIO_ENDPOINT"]
+MINIO_ACCESS_KEY = os.environ["MINIO_ACCESS_KEY"]
+MINIO_SECRET_KEY = os.environ["MINIO_SECRET_KEY"]
+MINIO_BUCKET = os.environ.get("MINIO_BUCKET", "localizations")
+MINIO_PUBLIC_URL = os.environ.get("MINIO_PUBLIC_URL", MINIO_ENDPOINT)
 
 
 class UpToDateError(Exception):
@@ -67,13 +72,9 @@ class ReleaseInfo(TypedDict):
 
 
 def get_github_headers() -> dict[str, str]:
-    headers = {
-        "Accept": "application/vnd.github.v3+json",
-    }
-
+    headers = {}
     if GITHUB_TOKEN:
         headers["Authorization"] = f"token {GITHUB_TOKEN}"
-
     return headers
 
 
@@ -133,12 +134,52 @@ def get_optimized_icon(icon_url: str) -> str:
     return f"data:image/webp;base64,{base64_data}"
 
 
+def get_metadata(
+    client: minio.Minio, object_name: str
+) -> dict[str, str] | HTTPHeaderDict | None:
+    try:
+        file_object = client.stat_object(MINIO_BUCKET, object_name).metadata
+        return file_object
+    except minio.error.S3Error as e:
+        if e.code == "NoSuchKey":
+            return None
+        else:
+            raise e
+
+
+def sync_to_minio(client: minio.Minio, source_url: str, object_name: str):
+    current = get_metadata(client, object_name)
+
+    if current is not None:
+        return
+
+    with requests.get(source_url, stream=True) as r:
+        r.raise_for_status()
+
+        file_size = int(r.headers.get("content-length", 0))
+        if file_size == 0:
+            file_size = -1
+
+        client.put_object(
+            MINIO_BUCKET,
+            object_name,
+            data=cast(BinaryIO, r.raw),
+            length=file_size,
+            content_type=r.headers.get("content-type", "application/octet-stream"),
+        )
+
+
 def create_release(
+    client: minio.Minio,
     localization_id: str,
     entry: ConfigEntry,
+    latest_version: str | None = None,
 ) -> Localization:
     latest_release = get_release_info(entry["repo"])
     version = latest_release["tag_name"]
+
+    if latest_version is not None and version == latest_version:
+        raise UpToDateError("Version is up to date")
 
     description = get_description(latest_release).replace("\r\n", "\n\n")
     asset = get_localization_asset_info(latest_release, entry.get("localization_asset"))
@@ -147,6 +188,23 @@ def create_release(
         raise ValueError("Localization asset not found")
 
     asset_url, size = asset
+
+    asset_path = f"{localization_id}/files/{version}.zip"
+    sync_to_minio(client, asset_url, asset_path)
+
+    fonts: list[FontInfo] = []
+    for font in entry["fonts"]:
+        font_path = f"{localization_id}/fonts/{font['hash']}"
+        sync_to_minio(client, font["url"], font_path)
+
+        current: FontInfo = {
+            "name": font["name"],
+            "url": f"{MINIO_PUBLIC_URL}/{MINIO_BUCKET}/{font_path}",
+            "hash": font["hash"],
+        }
+
+        fonts.append(current)
+
     icon = get_optimized_icon(entry["icon"])
 
     return {
@@ -157,15 +215,22 @@ def create_release(
         "icon": icon,
         "description": description,
         "authors": entry["authors"],
-        "url": asset_url,
+        "url": f"{MINIO_PUBLIC_URL}/{MINIO_BUCKET}/{asset_path}",
         "size": size,
-        "fonts": entry["fonts"],
+        "fonts": fonts,
         "format": entry["format"],
     }
 
 
 def do_update() -> int:
     logging.info("Checking for localizations updates")
+
+    client = minio.Minio(
+        MINIO_ENDPOINT,
+        access_key=MINIO_ACCESS_KEY,
+        secret_key=MINIO_SECRET_KEY,
+        secure=False,
+    )
 
     script_dir = Path(__file__).parent.absolute()
     config_path = script_dir / "localizations.toml"
@@ -177,9 +242,7 @@ def do_update() -> int:
     with config_path.open("r") as f:
         config = toml.load(f)
 
-    current = requests.get(
-        f"https://gist.githubusercontent.com/{GITHUB_GIST_OWNER}/{GITHUB_GIST_ID}/raw/localizations.json"
-    )
+    current = requests.get(f"{MINIO_PUBLIC_URL}/{MINIO_BUCKET}/localizations.json")
 
     current_localizations: dict[str, Localization] = {}
     if current.ok:
@@ -189,15 +252,22 @@ def do_update() -> int:
 
     processed: dict[str, Localization] = {}
     for localization_id, entry in config.items():
+        current_version = current_localizations.get(localization_id, {}).get("version")
+
         try:
             processed[localization_id] = create_release(
+                client,
                 localization_id,
                 entry,
+                current_version,
             )
+        except UpToDateError:
+            logging.info(f"{localization_id} is up to date")
+            processed[localization_id] = current_localizations[localization_id]
         except Exception as e:
-            logging.error(f"Error getting latest release for {localization_id}: {e}")
+            logging.error(f"Failed to process localization {localization_id}: {repr(e)}")
 
-            if localization_id in current_localizations:
+            if current_version is not None:
                 processed[localization_id] = current_localizations[localization_id]
 
     if processed == current_localizations:
@@ -208,19 +278,16 @@ def do_update() -> int:
         {"localizations": list(processed.values()), "format_version": 1},
         indent=2,
         ensure_ascii=False,
+    ).encode("utf-8")
+
+    client.put_object(
+        MINIO_BUCKET,
+        "localizations.json",
+        BytesIO(content),
+        len(content),
     )
 
-    response = requests.patch(
-        f"https://api.github.com/gists/{GITHUB_GIST_ID}",
-        headers=get_github_headers(),
-        json={"files": {"localizations.json": {"content": content}}},
-    )
-
-    if response.status_code != 200:
-        logging.error(f"Failed to update gist: {response.status_code} {response.text}")
-        return 1
-
-    logging.info("Gist updated successfully")
+    logging.info("Localizations updated successfully")
     return 0
 
 
@@ -254,8 +321,6 @@ if __name__ == "__main__":
 
     else:
         logging.info(f"Scheduling updates every {args.interval} minutes")
-
-        main()
         schedule.every(args.interval).minutes.do(main)
 
         while True:

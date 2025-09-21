@@ -75,12 +75,12 @@ repo = "LimbusTraditionalMandarin/storyline"
 name = "Limbus Traditional Mandarin"
 authors = [
   # Lead
-  "薯條", 
+  "薯條",
   # Managers
-  "Traxton", 
-  "小睡一夏", 
-  "まぅSmallYuan", 
-  "tool-jx3", 
+  "Traxton",
+  "小睡一夏",
+  "まぅSmallYuan",
+  "tool-jx3",
   "未知未知",
   # Proofreaders
   "：이상",
@@ -176,14 +176,14 @@ fonts = []
 repo = "Laetaria/LocalizeLimbusIT"
 name = "Espresso Office"
 authors = [
-  "flowerssummerr", 
-  "Eremitaviola", 
+  "flowerssummerr",
+  "Eremitaviola",
   "Ballastedmarco91",
-  "KoilaKarpaKoi", 
-  "GhostyTricker", 
-  "Cimone", 
-  "SirPapera", 
-  "Veldia", 
+  "KoilaKarpaKoi",
+  "GhostyTricker",
+  "Cimone",
+  "SirPapera",
+  "Veldia",
   "Dottore"
 ]
 flag = "IT"

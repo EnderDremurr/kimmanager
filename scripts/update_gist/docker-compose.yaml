@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./update_gist/localizations.toml:/app/localizations.toml
+      - ../localizations.toml:/app/localizations.toml
     restart: always
     env_file:
       - .env
