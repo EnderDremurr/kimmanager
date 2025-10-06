@@ -27,6 +27,11 @@
     ],
     "resources": [
       "resources/*"
-    ]
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "embedBootstrapper"
+      }
+    }
   }
 }
