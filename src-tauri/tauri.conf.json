@@ -29,8 +29,7 @@
       "resources/*"
     ],
     "windows": {
-      "webviewInstallMode": {
-        "type": "embedWebView2"
+      "webviewInstallMode": "embedWebview2"
       }
     }
   }
