@@ -30,7 +30,7 @@
     ],
     "windows": {
       "webviewInstallMode": {
-        "type": "embedBootstrapper"
+        "type": "embedWebView2"
       }
     }
   }
