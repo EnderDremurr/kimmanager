@@ -29,7 +29,8 @@
       "resources/*"
     ],
     "windows": {
-      "webviewInstallMode": "embedWebview2"
-      }
+      "webviewInstallMode": {
+    "type": "offlineInstaller"
+  }
     }
   }
